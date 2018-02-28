@@ -540,7 +540,7 @@ img{
    -moz-osx-font-smoothing: grayscale
 }
 
-.icon-battery:before{content:'\0041';}
+.icon-battery:before{content:'\0041';font-size: 25px;float: right;margin-top: -2px}
 
 .icon-bluetooth:before{content:'\0042';}
 
@@ -553,18 +553,21 @@ img{
 .icon-wifi_icon:before{content:'\0046';}
 
 .alarm-timings__time-row{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
     padding:20px;
     border-bottom:solid 1px #9B9B9B;
-
   }
 
 .alarm-timings__time-row .alarm-timings__time-details{
+      
         float:left;
      -webkit-padding-start: 40px;
 
 }
 
 .alarm-timings__time-row .alarm-timings__time-details .alarm-timings__alarm-time{
+    font-weight:300;
       font-size: 36px;
       margin:0;
       color: #FFFFFF;
@@ -572,28 +575,32 @@ img{
     }
 
 .alarm-timings__time-row .alarm-timings__time-details .alarm-timings__date-text{
-      font-weight:100;
+      font-weight:300;
       color:#9B9B9B;
     
      }
 
 .alarm-timings__time-row .alarm-timings__alarm-toggle{
   float:right;
-  padding-top:5px;
+  margin-top:10px;
       -webkit-padding-end: 40px;
  }
 
-.alarm-timings__time-row .icon-settings{
+.alarm-timings__time-row .alarm-timings__icon-wrapper {
+    display:inline-block;
+    position: relative;
+    left: 10%;
+}
+
+.alarm-timings__time-row .alarm-timings__icon-wrapper .icon-settings{
   text-align:center;
   color:#9B9B9B;
+    position: relative;
+    left: -50%;
 }
 
 .alarm-timings .ios-switch {
-
-/*  commenting out to fix alignment */
-  /*visibility: hidden;*/
   display:none;
-
 }
 
 .alarm-timings .ios-switch-label {
@@ -601,13 +608,14 @@ img{
   display: block;
   position: relative;
   box-sizing: border-box;
-  width: 70px;
-  height: 35px;
+  width: 60px;
+  height: 25px;
   border-radius:20px;
   border: 2px solid transparent;
   cursor: pointer;
   transition: all .25s ease-in-out;
   background: #777777;
+  padding-bottom: 20px;
 }
 
 .alarm-timings .ios-switch-label::before {
@@ -617,8 +625,8 @@ img{
   position: absolute;
   top: -2px;
   left: -2px;
-  width: 35px;
-  height: 35px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   border: 2px solid transparent;
   transition: all .25s ease-in-out;
@@ -652,6 +660,53 @@ img{
     -webkit-transform: translate(-50%, 100%);
             transform: translate(-50%, 100%);
 }
+
+.new-alarm__wrapper{
+  position:relative;
+  padding-top:80px;
+  text-align:center;
+  height: 450px;
+  font-family: HelveticaNeue-Thin;
+}
+
+.new-alarm__wrapper .icon-notification_bell{
+    color:#007AFF;
+    font-size:30px;
+    text-align:center;
+  }
+
+.new-alarm__wrapper .new-alarm__large-text{
+font-size: 56px;
+margin-top:20px;
+margin-bottom:0px;
+color: #FFFFFF;
+font-weight:300;
+  }
+
+.new-alarm__wrapper .new-alarm__small-text{
+font-size: 18px;
+margin-top:2px;
+color: #FFFFFF;
+  }
+
+.new-alarm__wrapper .new-alarm__action-buttons{
+      position: absolute;
+      bottom: 0px;
+      border: solid 1px black;
+    margin-left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+
+  }
+
+.new-alarm__wrapper .new-alarm__action-buttons a{
+     padding-left: 25px;
+    display: inline;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    }
 
 .iphone-header{
 

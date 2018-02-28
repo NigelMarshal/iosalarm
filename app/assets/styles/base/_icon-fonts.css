@@ -18,7 +18,7 @@
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale
 }
-.icon-battery:before{content:'\0041';}
+.icon-battery:before{content:'\0041';font-size: 25px;float: right;margin-top: -2px}
 .icon-bluetooth:before{content:'\0042';}
 .icon-carrier_signal:before{content:'\0043';}
 .icon-notification_bell:before{content:'\0044';}

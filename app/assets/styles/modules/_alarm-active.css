@@ -1,0 +1,46 @@
+.new-alarm__wrapper{
+  position:relative;
+  padding-top:80px;
+  text-align:center;
+  height: 450px;
+  font-family: HelveticaNeue-Thin;
+  .icon-notification_bell{
+    color:$light-blue;
+    font-size:30px;
+    text-align:center;
+  }
+
+.new-alarm__large-text{
+font-size: 56px;
+margin-top:20px;
+margin-bottom:0px;
+color: #FFFFFF;
+font-weight:300;
+  }
+
+  .new-alarm__small-text{
+font-size: 18px;
+margin-top:2px;
+color: #FFFFFF;
+  }
+
+  .new-alarm__action-buttons{
+      position: absolute;
+      bottom: 0px;
+      border: solid 1px black;
+    margin-left: 50%;
+    -webkit-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+    transform: translate(-50%);
+    
+  a{
+     padding-left: 25px;
+    display: inline;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    }
+
+  }
+}
