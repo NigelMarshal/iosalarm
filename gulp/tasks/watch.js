@@ -9,7 +9,7 @@ gulp.task('watch', function(){
 				baseDir: "app"
 			}
 	});
-
+/* watch tasks for changes and browser refresh */
 	watch('./app/**/*.html', function() {
 		browserSync.reload();
 	});
@@ -18,9 +18,17 @@ gulp.task('watch', function(){
 		gulp.start('cssInject');
 	});
 
+	watch('./app/assets/scripts/**/*.js', function(){
+		gulp.start('scriptsRefresh');
+	})
+
 });
 
 gulp.task('cssInject', ['styles'], function(){
 	return gulp.src('./app/temp/styles/styles.css')
 	.pipe(browserSync.stream());
+});
+	/*Task won't complete until dependency on scripts is done */
+gulp.task('scriptsRefresh', ['scripts'], function(){
+	browserSync.reload();
 });
