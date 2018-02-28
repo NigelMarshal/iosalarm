@@ -1,0 +1,31 @@
+.iphone-header{
+
+width:100%;
+margin:0 auto;
+display:inline-block;
+text-align:center;
+
+&__connection-icons{
+		float:left;
+		li{
+			list-style: none;
+    		display: inline;
+    		padding-right: 5px;
+		}
+}
+	
+	&__time{
+		text-align:center;
+		
+	}
+
+	&__status-icons{
+		float:right;
+		    -webkit-padding-end: 40px;
+		li{
+			list-style: none;
+    		display: inline;
+    		padding-right: 5px;
+		}
+	}
+}
