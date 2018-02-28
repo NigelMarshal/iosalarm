@@ -25,6 +25,7 @@
      
  .alarm-timings__alarm-toggle{
   float:right;
+  padding-top:5px;
       -webkit-padding-end: 40px;
  }
 
@@ -36,7 +37,11 @@
   }
 
 .ios-switch {
-  visibility: hidden;
+
+/*  commenting out to fix alignment */
+  /*visibility: hidden;*/
+  display:none;
+
 }
 
 .ios-switch-label {
@@ -80,5 +85,21 @@
 
 }
 
+.add-new__alarm{
+      display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 2px solid white;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 45px;
+    font-weight: 300;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+}
 
 
