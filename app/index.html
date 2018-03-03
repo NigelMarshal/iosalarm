@@ -37,7 +37,7 @@
     <div class="alarm-timings__icon-wrapper"><p class="icon-settings"></p></div>
 
     <div class="alarm-timings__alarm-toggle">
-      <input id='ios-switch-1' class='ios-switch' type='checkbox'>
+      <input id='ios-switch-1' class='ios-switch' type='checkbox' checked>
       <label for='ios-switch-1' class='ios-switch-label'></label>
     </div>
       
@@ -110,5 +110,17 @@
 
 </div>
  <script src="/temp/scripts/app-compiled.js"></script>
+
+ <script>
+   
+   function ChangeColor(color) {
+    var clrDiv = document.getElementsByClassName("colorDiv")[0];
+    clrDiv.style.backgroundColor = color;
+}
+
+document.getElementById("select1").onclick = function() { ChangeColor(""); }
+document.getElementById("select2").onclick = function() { ChangeColor("green"); }
+document.getElementById("select3").onclick = function() { ChangeColor("blue"); }
+ </script>
 </body>
 </html>
