@@ -7,11 +7,13 @@
   <meta name="keywords" content="ios, app3, Moustachio, gari, water, eba">
   <meta name="description" content="ios Alarm screens in HTML, CSS and JS">
   <link rel="stylesheet" href="temp/styles/styles.css">
-<!--   <script
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.skinNice.css">
+  <script
   src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-  crossorigin="anonymous"></script> -->
-  <script src="/temp/scripts/app-compiled.js"></script>
+  crossorigin="anonymous"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js'></script>
+  <!-- <script src="/temp/scripts/app-compiled.js"></script> -->
 
 </head>
 <body>
@@ -32,20 +34,141 @@
   </header>
 
 <div class="new-alarm__wrapper">
-<p class="new-alarm__title"></p>
-<p class="new-alarm__large-text"></p>
+<p class="new-alarm__title">New Alarm</p>
+
+    <input class="new-alarm__time-box" type="text" maxlength="2"  value ="12" id="alarmHours" />
+    <span class="new-alarm__time-seperator">:</span>
+    <input class="new-alarm__time-box" type="text" maxlength="2" value ="30" id="alarmMinutes" />
 
 
-<input type="text" id="example_id" name="example_name" value="" />
+
+
+    <input type="text" class="new-alarm__hours-slider" value="" />
+    <input type="text" class="new-alarm__minutes-slider" value="" />
 
 
 
 
+
+<!-- <p id="test-hour" value="test">hi</p>
+
+<input type="text" id="alarmHours" name="example_name" value="" /> -->
+<!-- <input type="text" id="alarmMinutes" name="example_name" value="" /> -->
+
+<div class="new-alarm__days-selector-wrapper">
+  
+<input type="checkbox" id="sunday"/>
+  <label for="sunday">S</label>
+  <input type="checkbox" id="monday"/>
+  <label for="monday">M</label>
+  <input type="checkbox" id="tuesday"/>
+  <label for="tuesday">T</label>
+  <input type="checkbox" id="wednesday"/>
+  <label for="wednesday">W</label>
+  <input type="checkbox" id="thursday" />
+  <label for="thursday">T</label>
+  <input type="checkbox" id="friday" />
+  <label for="friday">F</label>
+  <input type="checkbox" id="saturday" />
+  <label for="saturday">S</label>
+</div>
+
+
+
+
+<div class="new-alarm__action-buttons">
+  <a href="#">Cancel</a>
+  <a href="set-new-alarm.html">Save</a>
+</div>
 
  </div>
 
-   <script>
-  $("#example_id").ionRangeSlider();
-</script>
+
+
+   <script type='text/javascript'>
+
+var $hours = $(".new-alarm__hours-slider"),
+    $minutes = $(".new-alarm__minutes-slider"),
+    $from = $("#alarmHours"),
+    $to = $("#alarmMinutes"),
+    single,
+    min = 0,
+    max = 1000,
+    to,
+    from;
+
+var updateValuesHours = function () {
+    $from.prop("value", from);
+
+};
+
+var updateValuesMinutes = function(){
+    $to.prop("value", to);
+};
+
+$hours.ionRangeSlider({
+     type: "single",
+          min: 1,
+          max: 12,
+          step: 1,
+          grid: true,
+          grid_num: 5,
+          grid_snap: true,
+    grid_num: 10,
+    onChange: function (data) {
+        from = data.from;        
+        updateValuesHours();
+    }
+});
+
+hours = $hours.data("ionRangeSlider");
+
+$minutes.ionRangeSlider({
+     type: "single",
+          min: 1,
+          max: 59,
+          step: 1,
+          grid: true,
+          grid_num: 5,
+          grid_snap: true,
+    grid_num: 10,
+    onChange: function (data) {
+        to = data.from        
+        updateValuesMinutes();
+    }
+});
+
+minutes = $minutes.data("ionRangeSlider");
+
+
+
+
+
+
+      // $('#alarmHours').ionRangeSlider({
+      //     type: "single",
+      //     min: 0,
+      //     max: 12,
+      //     step: 1,
+      //     grid: true,
+      //     grid_num: 5,
+      //     grid_snap: true,
+     
+      //    onChange:  function (data) {
+      //         console.log(data.from);
+      //       // document.getElementById("test-hour").setAttribute(data, from);
+      //     }
+      //   });
+
+    // $('#alarmMinutes').ionRangeSlider({    
+    //     type: "single",
+    //     min: 0,
+    //     max: 59,
+    //     step: 1,
+    //     grid: true,
+    //     grid_num: 5,
+    //     grid_snap: true
+    // });
+   </script>
 </body>
 </html>

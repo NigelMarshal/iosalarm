@@ -43,4 +43,53 @@ color: #FFFFFF;
     }
 
   }
+
+  .new-alarm__title{
+font-size: 18px;
+color: #FFFFFF;
+text-align: center;
+  }
+
+  .new-alarm__days-selector-wrapper{
+    padding-top:100px;
+  }
+  .new-alarm__days-selector-wrapper input {
+    visibility:hidden;
+  }
+
+.new-alarm__days-selector-wrapper input[type=checkbox] + label {
+  display: inline-block;
+  border: solid 1px #9B9B9B;
+  border-radius: 30px;
+  color:#9B9B9B;
+  height: 30px;
+  width: 30px;
+  margin-right: 3px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.new-alarm__days-selector-wrapper input[type=checkbox]:checked + label {
+  color:white;
+  border: solid 1px white;
+}
+
+.new-alarm__time-seperator{
+      font-size:56px;
+}
+
+.new-alarm__time-box{
+    border: none;
+    background-color: transparent;
+    resize: none;
+    font-size: 56px;
+    outline: none;
+    color: white;
+    width: 70px;
+    text-align: center;
+    margin: 0;
+    display: inline;
+}
+  
 }

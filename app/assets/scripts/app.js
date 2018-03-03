@@ -1,2 +1,5 @@
 var $ = require('jquery');
-var $ = require('ion-rangeslider');
+var ion = require('ion-rangeSlider');
+// var ionjs = require('ion.rangeSlider.min');
+ 
+// $("#example_id").ionRangeSlider();
