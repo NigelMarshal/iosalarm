@@ -387,6 +387,18 @@ img{
 
 .icon-wifi_icon:before{content:'\0046';}
 
+@media (min-width: 320px) and (max-width: 480px) {
+.iphone-header{
+	    font-size: 13px;
+}
+
+ .iphone-header .icon-battery:before{
+			margin-top:-5px;
+	    }
+
+
+}
+
 .alarm-timings__time-row{
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
   Helvetica, Arial, "Lucida Grande", sans-serif;

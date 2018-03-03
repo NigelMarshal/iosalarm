@@ -1,0 +1,11 @@
+@media (min-width: 320px) and (max-width: 480px) {
+.iphone-header{
+	    font-size: 13px;
+
+ .icon-battery:before{
+			margin-top:-5px;
+	    }
+}
+
+
+}

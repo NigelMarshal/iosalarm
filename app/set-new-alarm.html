@@ -97,14 +97,25 @@ var $hours = $(".new-alarm__hours-slider"),
     to,
     from;
 
+
+
 var updateValuesHours = function () {
     $from.prop("value", from);
+  localStorage.setItem( 'StoreHours', from); 
+  let localHours = localStorage.getItem("StoreHours"); 
+  console.log(localHours); 
+
 
 };
 
 var updateValuesMinutes = function(){
-    $to.prop("value", to);
+  $to.prop("value", to);
+  localStorage.setItem( 'StoreMinutes', to); 
+  let localMinutes = localStorage.getItem("StoreMinutes"); 
+  console.log(localMinutes); 
 };
+
+
 
 $hours.ionRangeSlider({
      type: "single",
@@ -137,38 +148,11 @@ $minutes.ionRangeSlider({
         updateValuesMinutes();
     }
 });
-
+ // localStorage.setItem( 'Tesst', minutes);
 minutes = $minutes.data("ionRangeSlider");
 
 
 
-
-
-
-      // $('#alarmHours').ionRangeSlider({
-      //     type: "single",
-      //     min: 0,
-      //     max: 12,
-      //     step: 1,
-      //     grid: true,
-      //     grid_num: 5,
-      //     grid_snap: true,
-     
-      //    onChange:  function (data) {
-      //         console.log(data.from);
-      //       // document.getElementById("test-hour").setAttribute(data, from);
-      //     }
-      //   });
-
-    // $('#alarmMinutes').ionRangeSlider({    
-    //     type: "single",
-    //     min: 0,
-    //     max: 59,
-    //     step: 1,
-    //     grid: true,
-    //     grid_num: 5,
-    //     grid_snap: true
-    // });
    </script>
 </body>
 </html>
