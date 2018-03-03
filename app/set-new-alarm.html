@@ -65,6 +65,7 @@
   <label for="tuesday">T</label>
   <input type="checkbox" id="wednesday"/>
   <label for="wednesday">W</label>
+  <br/>
   <input type="checkbox" id="thursday" />
   <label for="thursday">T</label>
   <input type="checkbox" id="friday" />
@@ -132,6 +133,15 @@ $hours.ionRangeSlider({
     }
 });
 
+(function () { 
+  from = 0;
+  $to.prop("value", 0);
+  if (localStorage.getItem("StoreHours"))  {
+    $from.prop("value", localStorage.getItem("StoreHours"));
+    to = $from.prop;
+}
+})();
+
 hours = $hours.data("ionRangeSlider");
 
 $minutes.ionRangeSlider({
@@ -149,8 +159,19 @@ $minutes.ionRangeSlider({
     }
 });
  // localStorage.setItem( 'Tesst', minutes);
-minutes = $minutes.data("ionRangeSlider");
+// minutes = $minutes.data("ionRangeSlider");
 
+
+(function () { 
+  from = 0;
+  $to.prop("value", 0);
+  if (localStorage.getItem("StoreMinutes"))  {
+    $to.prop("value", localStorage.getItem("StoreMinutes"));
+    from = $to.prop;
+}
+})();
+
+minutes = $minutes.data("ionRangeSlider");
 
 
    </script>
