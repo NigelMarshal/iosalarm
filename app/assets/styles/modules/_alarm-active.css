@@ -25,6 +25,7 @@ color: #FFFFFF;
   }
 
   .new-alarm__action-buttons{
+      width:100%;
       position: absolute;
       bottom: 0px;
       border: solid 1px black;
@@ -34,7 +35,8 @@ color: #FFFFFF;
     transform: translate(-50%);
     
   a{
-     padding-left: 25px;
+margin-right: 45px;
+    padding-left: 60px;
     display: inline;
     font-size: 18px;
     color: #FFFFFF;
@@ -53,9 +55,8 @@ text-align: center;
   .new-alarm__days-selector-wrapper{
  
         width: 230px;
-    padding-top: 300px;
+    margin-top: 150px;
     text-align: left;
-  
     position: absolute;
     top: 50%;
     right: 50%;
