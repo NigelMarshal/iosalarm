@@ -35,7 +35,7 @@
 
 <span class="icon-notification_bell"></span>
 <p class="new-alarm__large-text">05:00</p>
-<p class="new-alarm__small-text">MON 10/30/2017</p>
+<p class="new-alarm__small-text" id="todayDate"></p>
 
 
 <div class="new-alarm__action-buttons">
@@ -46,6 +46,28 @@
  </div>
 
  <script type='text/javascript'>
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+var d = new Date();
+var days = ["SUN ","MON ","TUE ","WED ","THU ","FRI ","SAT "];
+
+if(dd<10) {
+    dd = '0'+dd
+} 
+
+if(mm<10) {
+    mm = '0'+mm
+} 
+
+today = mm + '/' + dd + '/' + yyyy;
+document.getElementById('todayDate').innerHTML = days[d.getDay()] + today;
+
+</script>
+
+ <script type='text/javascript'>
    function updateClock() {
     var now = new Date(); // current date
         time = now.getHours() + ':' + now.getMinutes(), 
@@ -54,7 +76,7 @@
 }
 
 updateClock(); 
-   
+
  </script>
 
 
