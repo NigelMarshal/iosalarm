@@ -420,13 +420,16 @@ img{
       font-size: 32px;
       margin:0;
       color: #FFFFFF;
+      display:inline;
 
   
     }
 
 .alarm-timings__time-row .alarm-timings__time-details .alarm-timings__date-text{
+      padding-top:2px;
       font-weight:300;
       color:#9B9B9B;
+      display:flex;
     
      }
 
@@ -507,6 +510,7 @@ img{
     font-weight: 300;
     position: absolute;
     left: 50%;
+    top: 80%;
     -webkit-transform: translate(-50%, 100%);
             transform: translate(-50%, 100%);
 }
@@ -567,7 +571,7 @@ color: #FFFFFF;
 text-align: center;
   }
 
-.new-alarm__wrapper .new-alarm__days-selector-wrapper{
+.new-alarm__wrapper #new-alarm__days-selector-wrapper{
  
         width: 230px;
     margin-top: 150px;
@@ -579,11 +583,11 @@ text-align: center;
             transform: translate(50%,-50%);
   }
 
-.new-alarm__wrapper .new-alarm__days-selector-wrapper input {
+.new-alarm__wrapper #new-alarm__days-selector-wrapper input {
     visibility:hidden;
   }
 
-.new-alarm__wrapper .new-alarm__days-selector-wrapper input[type=checkbox] + label {
+.new-alarm__wrapper #new-alarm__days-selector-wrapper input[type=checkbox] + label {
   display: inline-block;
   border: solid 1px #9B9B9B;
   border-radius: 30px;
@@ -597,7 +601,7 @@ text-align: center;
   cursor: pointer;
 }
 
-.new-alarm__wrapper .new-alarm__days-selector-wrapper input[type=checkbox]:checked + label {
+.new-alarm__wrapper #new-alarm__days-selector-wrapper input[type=checkbox]:checked + label {
   color:white;
   border: solid 1px white;
 }
@@ -652,6 +656,10 @@ text-align:center;
     		display: inline;
     		padding-right: 5px;
 		}
+
+.test{
+	
+}
 
 /* Ion.RangeSlider
 // css version 2.0.3

@@ -22,13 +22,16 @@
       font-size: 32px;
       margin:0;
       color: #FFFFFF;
+      display:inline;
 
   
     }      
 
     .alarm-timings__date-text{
+      padding-top:2px;
       font-weight:300;
       color:$light-gray;
+      display:flex;
     
      }
 
@@ -113,6 +116,7 @@
     font-weight: 300;
     position: absolute;
     left: 50%;
+    top: 80%;
     transform: translate(-50%, 100%);
 }
 

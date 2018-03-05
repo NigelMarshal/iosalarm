@@ -8,10 +8,7 @@
   <meta name="description" content="ios Alarm screens in HTML, CSS and JS">
   <link rel="stylesheet" href="temp/styles/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.skinNice.css">
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js'></script>
   <!-- <script src="/temp/scripts/app-compiled.js"></script> -->
 
@@ -55,7 +52,7 @@
 <input type="text" id="alarmHours" name="example_name" value="" /> -->
 <!-- <input type="text" id="alarmMinutes" name="example_name" value="" /> -->
 
-<div class="new-alarm__days-selector-wrapper">
+<div id="new-alarm__days-selector-wrapper">
   
 <input type="checkbox" id="sunday"/>
   <label for="sunday">S</label>
@@ -83,6 +80,32 @@
 </div>
 
  </div>
+
+
+ <script type='text/javascript'>
+
+//function for persistent checkbox     
+var formValues = JSON.parse(localStorage.getItem('formValues')) || {};
+var $checkboxes = $("#new-alarm__days-selector-wrapper :checkbox");
+
+function updateStorage(){
+  $checkboxes.each(function(){
+    formValues[this.id] = this.checked;
+  });
+
+  localStorage.setItem("formValues", JSON.stringify(formValues));
+}
+
+$checkboxes.on("change", function(){
+  updateStorage();
+});
+
+// On page load
+$.each(formValues, function(key, value) {
+  $("#" + key).prop('checked', value);
+});
+
+   </script>
 
 
 
@@ -123,10 +146,12 @@ $hours.ionRangeSlider({
           min: 1,
           max: 12,
           step: 1,
-          grid: true,
-          grid_num: 5,
+   
           grid_snap: true,
     grid_num: 10,
+    hide_min_max: true,
+    hide_from_to: true,
+
     onChange: function (data) {
         from = data.from;        
         updateValuesHours();
@@ -149,10 +174,12 @@ $minutes.ionRangeSlider({
           min: 1,
           max: 59,
           step: 1,
-          grid: true,
-          grid_num: 5,
+ 
           grid_snap: true,
     grid_num: 10,
+    hide_min_max: true,
+    hide_from_to: true,
+   
     onChange: function (data) {
         to = data.from        
         updateValuesMinutes();
@@ -170,8 +197,8 @@ $minutes.ionRangeSlider({
 })();
 
 minutes = $minutes.data("ionRangeSlider");
-
-
    </script>
+
+    
 </body>
 </html>
