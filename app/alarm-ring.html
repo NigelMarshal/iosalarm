@@ -7,11 +7,7 @@
   <meta name="keywords" content="ios, app3, Moustachio, gari, water, eba">
   <meta name="description" content="ios Alarm screens in HTML, CSS and JS">
   <link rel="stylesheet" href="temp/styles/styles.css">
-<!--   <script
-  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-  crossorigin="anonymous"></script> -->
-  <script src="/temp/scripts/app-compiled.js"></script>
+
 
 </head>
 <body>
@@ -28,13 +24,13 @@
       <li class="icon-battery"></li>
       </ul>
  
-    <p id="iphone-header__time">9:41 AM</p>
+    <p id="iphone-header__time"></p>
   </header>
 
 <div class="new-alarm__wrapper">
 
 <span class="icon-notification_bell"></span>
-<p class="new-alarm__large-text">05:00</p>
+<p class="new-alarm__large-text" id="alarm-ring-time"></p>
 <p class="new-alarm__small-text" id="todayDate"></p>
 
 
@@ -68,17 +64,31 @@ document.getElementById('todayDate').innerHTML = days[d.getDay()] + today;
 </script>
 
  <script type='text/javascript'>
-   function updateClock() {
-    var now = new Date(); // current date
-        time = now.getHours() + ':' + now.getMinutes(), 
-   document.getElementById('iphone-header__time').innerHTML = [time];
-    setTimeout(updateClock, 1000);
-}
 
-updateClock(); 
+//show time in header
+var headerTime = document.getElementById('iphone-header__time');
+var alarmTime = document.getElementById('alarm-ring-time');
+// display current time
+var currentTime = setInterval(function(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  headerTime.textContent = (hours) + ":" + (minutes) + "";
+  alarmTime.textContent = (hours) + ":" + (minutes) + "";
+},1000);
 
  </script>
 
+<script type='text/javascript'>
+   //alarm sound
+
+var sound = new Audio("https://freespecialeffects.co.uk/soundfx/clocks/clock_chime.wav");
+    sound.loop = true;
+function ringAlarm() {
+            sound.play();
+        }
+        window.onload = ringAlarm;
+</script>
 
 </body>
 </html>
