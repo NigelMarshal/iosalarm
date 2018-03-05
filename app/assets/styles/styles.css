@@ -6,7 +6,7 @@
 @import "modules/_alarm-times";
 @import "modules/_alarm-active";
 @import "modules/_ios-header";
-@import "modules/_alarm-slider";
 @import "ion-rangeslider/css/ion.rangeSlider.css";
+@import "modules/_alarm-slider";
 /*@import "ion-rangeslider/css/ion.rangeSlider.skinNice.css";*/
 
