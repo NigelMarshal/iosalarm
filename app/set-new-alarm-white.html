@@ -7,6 +7,7 @@
   <meta name="keywords" content="ios, app3, Moustachio, gari, water, eba">
   <meta name="description" content="ios Alarm screens in HTML, CSS and JS">
   <link rel="stylesheet" href="temp/styles/styles.css">
+    <link rel="stylesheet" href="temp/styles/styles-white.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js'></script>
 <!--   <script src="assets/scripts/app.js"></script> -->
@@ -73,7 +74,7 @@
 
 
 <div class="new-alarm__action-buttons">
-  <a href="set-new-alarm.html">Cancel</a>
+  <a href="set-new-alarm-white.html">Cancel</a>
   <a onClick='alarmSet()'>Save</a>
 </div>
 
@@ -233,10 +234,10 @@ setInterval(function(){
   var currentTime = headerTime.textContent = (hours) + ":" + (minutes) + "";
 
   if (alarmTime == currentTime) {
-    window.location = "alarm-ring.html";
+    window.location = "alarm-ring-white.html";
     }
     else{
-      window.location = "index.html";
+      window.location = "index-white.html";
     }
 
 },1000);
