@@ -27,7 +27,7 @@
       <li class="icon-battery"></li>
       </ul>
  
-    <p class="iphone-header__time">9:41 AM</p>
+    <p id="iphone-header__time">9:41 AM</p>
   </header>
 
 <div class="new-alarm__wrapper">
@@ -75,11 +75,23 @@
 
 
 <div class="new-alarm__action-buttons">
-  <a href="index.html">Cancel</a>
-  <a href="set-new-alarm.html">Save</a>
+  <a href="set-new-alarm.html">Cancel</a>
+  <a href="index.html">Save</a>
 </div>
 
  </div>
+
+  <script type='text/javascript'>
+   function updateClock() {
+    var now = new Date(); // current date
+        time = now.getHours() + ':' + now.getMinutes(), 
+   document.getElementById('iphone-header__time').innerHTML = [time];
+    setTimeout(updateClock, 1000);
+}
+
+updateClock(); 
+   
+ </script>
 
 
  <script type='text/javascript'>

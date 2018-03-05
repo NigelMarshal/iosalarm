@@ -641,7 +641,7 @@ text-align:center;
     		padding-right: 5px;
 		}
 
-.iphone-header__time{
+.iphone-header .iphone-header__time{
 		text-align:center;
 		
 	}
