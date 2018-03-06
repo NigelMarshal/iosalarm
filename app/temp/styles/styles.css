@@ -401,6 +401,10 @@ img{
       opacity:0.5;
     }
 
+.alarm-timings .active-row{
+    opacity:1;
+  }
+
 .alarm-timings__time-row{
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
   Helvetica, Arial, "Lucida Grande", sans-serif;

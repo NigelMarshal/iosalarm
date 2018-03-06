@@ -4,6 +4,10 @@
       opacity:0.5;
     }
 
+  .active-row{
+    opacity:1;
+  }
+
 
   &__time-row{
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 

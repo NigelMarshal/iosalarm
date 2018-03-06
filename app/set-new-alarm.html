@@ -74,7 +74,7 @@
 
 <div class="new-alarm__action-buttons">
   <a href="set-new-alarm.html">Cancel</a>
-  <a id='setButton' onClick='alarmSet()'>Save</a>
+  <a onClick='alarmSet()'>Save</a>
 </div>
 
  </div>
@@ -170,7 +170,6 @@ $minutes.ionRangeSlider({
           min: 1,
           max: 59,
           step: 1,
- 
           grid_snap: true,
     grid_num: 10,
     hide_min_max: true,
@@ -235,6 +234,9 @@ setInterval(function(){
 
   if (alarmTime == currentTime) {
     window.location = "alarm-ring.html";
+    }
+    else{
+      window.location = "index.html";
     }
 
 },1000);
