@@ -35,8 +35,9 @@
 
 
 <div class="new-alarm__action-buttons">
-  <a href="#" onClick='snooze()'>Snooze</a>
-  <a href="set-new-alarm.html">Dismiss</a>
+  <button><a href="#" onClick="snooze()">Snooze</a></button>
+ <button><a href="index.html">Dismiss</a></button>
+   
 </div>
 
  </div>
@@ -89,19 +90,19 @@ function ringAlarm() {
         }
         window.onload = ringAlarm;
 
+var updateValuesMinutes = function(){
+  $to.prop("value", to);
+  localStorage.setItem( 'StoreMinutes', to); 
+//convert string to integer
+ 
+};
 
-
-//         function snooze() {
-//   //           $to.prop("value", to);
-//   // localStorage.setItem( 'StoreMinutes', to); 
-//   // let localMinutes = localStorage.getItem("StoreMinutes" + 5); 
-//   // console.log(localMinutes + 5); 
-// localStorage.setItem( 'StoreMinutes', to); 
-// //convert string to integer
-// var localMinutes = parseInt(localStorage.getItem("StoreMinutes")); 
-// localStorage.setItem('localMinutes', localMinutes ++)
-// console.log(localMinutes); 
-// };
+function snooze(){
+let localMinutes = parseInt(localStorage.getItem("StoreMinutes"));
+localStorage.setItem('localMinutes', localMinutes+=5);
+localStorage.setItem('StoreMinutes', localMinutes);
+window.location = "index.html";
+}
 
 </script>
 

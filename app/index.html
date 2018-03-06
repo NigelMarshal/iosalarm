@@ -39,7 +39,7 @@
            <p class="alarm-timings__alarm-time" id="alarmHours">5</p>
            <p class="alarm-timings__alarm-time">:</p>
           <p class="alarm-timings__alarm-time" id="alarmMinutes">00</p>
-        <span class="alarm-timings__date-text">Weekend</span> 
+        <span class="alarm-timings__date-text">Weekday</span> 
     </div>
 
         <div class="alarm-timings__icon-wrapper">
@@ -55,10 +55,11 @@
       
   </div>
 
+
 <a href="create-new-alarm.html" class="add-new__alarm">+</a>
 
 <a id="alarmCheck" onClick='alarmSet()'></a>
-<a id="alarmCheck" onClick='alarmSet2()'></a>
+<a id="alarmCheck2" onClick='alarmSet2()'></a>
 </div>
 
 
@@ -87,12 +88,15 @@ appendContent();
    window.onload = function (){
         var hoursV = localStorage.getItem("StoreHours");
         var hoursV2 = localStorage.getItem("newStoreHours");
+
         var minutesV = localStorage.getItem("StoreMinutes");
         var minutesV2 = localStorage.getItem("newStoreMinutes");
 
         document.getElementById("alarmHours").innerHTML = hoursV;
-         document.getElementById("newAlarmHours").innerHTML = hoursV2;
         document.getElementById("alarmMinutes").innerHTML = minutesV; 
+
+
+         document.getElementById("newAlarmHours").innerHTML = hoursV2;
         document.getElementById("newAlarmMinutes").innerHTML = minutesV2; 
       }
 
@@ -121,18 +125,18 @@ var currentTime = setInterval(function(){
 
 
 function alarmSet2() {
-  var hr = document.getElementById('newAlarmHours');
-  var min = document.getElementById('newAlarmMinutes');
+  var hr2 = document.getElementById('newAlarmHours');
+  var min2 = document.getElementById('newAlarmMinutes');
   
-  var selectedHour = localStorage.getItem("newStoreHours");
-  var selectedMin = localStorage.getItem("newStoreMinutes")
+  var selectedHour2 = localStorage.getItem("newStoreHours");
+  var selectedMin2 = localStorage.getItem("newStoreMinutes")
 
-var alarmTime = (selectedHour) + ":" + (selectedMin);
-    console.log('alarmTime:' + alarmTime);
+var alarmTime2 = (selectedHour2) + ":" + (selectedMin2);
+    console.log('alarmTime2:' + alarmTime2);
     document.getElementById('newAlarmHours').disabled = true;
   document.getElementById('newAlarmMinutes').disabled = true;
 
-  var headerTime = document.getElementById('iphone-header__time');
+  var headerTime2 = document.getElementById('iphone-header__time');
 
 /*function to calcutate the current time 
 then compare it to the alarmtime 
@@ -140,16 +144,16 @@ then compare it to the alarmtime
 
 setInterval(function(){
 
-  var date = new Date();
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
+  var date2 = new Date();
+  var hours2 = date2.getHours();
+  var minutes2 = date2.getMinutes();
   
-  var currentTime = headerTime.textContent = (hours) + ":" + (minutes) + "";
+  var currentTime2 = headerTime.textContent = (hours2) + ":" + (minutes2) + "";
 
-  if (alarmTime == currentTime) {
+  if (alarmTime2 == currentTime2) {
     window.location = "alarm-ring.html";
     }
-      else if (alarmTime == "null:null"){
+      else if (alarmTime2 == "null:null"){
       console.log("Cannot leave time as zero");
     }
     else{
@@ -195,6 +199,7 @@ setInterval(function(){
 }
 
 setInterval(function () {document.getElementById("alarmCheck").click();}, 1000)
+setInterval(function () {document.getElementById("alarmCheck2").click();}, 1000)
  </script>
 
 

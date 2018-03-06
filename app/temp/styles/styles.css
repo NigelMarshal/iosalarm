@@ -519,6 +519,10 @@ img{
             transform: translate(-50%, 100%);
 }
 
+.row-hidden{
+  display:none;
+}
+
 .new-alarm__wrapper{
   position:relative;
   padding-top:80px;
