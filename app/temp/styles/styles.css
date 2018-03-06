@@ -556,12 +556,18 @@ color: #FFFFFF;
     margin-left: 50%;
     -webkit-transform: translate(-50%);
     transform: translate(-50%);
-
   }
 
-.new-alarm__wrapper .new-alarm__action-buttons a{
-margin-right: 45px;
-    padding-left: 60px;
+.new-alarm__wrapper .new-alarm__action-buttons button{
+      border:none;
+      margin-right: 33px;
+   margin-left: 50px;
+      background-color:black;
+}
+
+.new-alarm__wrapper .new-alarm__action-buttons button a{
+
+
     display: inline;
     font-size: 18px;
     color: #FFFFFF;
@@ -826,6 +832,8 @@ text-align:center;
     border-color: transparent !important;
 }
 
+/*@import "modules/_ion.rangeSlider.skinNice";*/
+
 /* Ion.RangeSlider, Nice Skin
 // css version 2.0.3
 // © Denis Ineshin, 2014    https://github.com/IonDen
@@ -938,5 +946,4 @@ text-align:center;
 .irs-disabled {
 }
 
-/*@import "ion-rangeslider/css/ion.rangeSlider.skinNice.css";*/
 

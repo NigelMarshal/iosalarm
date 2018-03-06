@@ -31,12 +31,11 @@
   </header>
 
 <div class="new-alarm__wrapper">
-<p class="new-alarm__title">New Alarm</p>
+<p class="new-alarm__title">Set New Alarm</p>
 
-    <input class="new-alarm__time-box" type="text" maxlength="2"  value ="00" id="alarmHours" />
+    <input class="new-alarm__time-box" type="text" maxlength="2"  value ="00" id="newAlarmHours" />
     <span class="new-alarm__time-seperator">:</span>
-    <input class="new-alarm__time-box" type="text" maxlength="2" value ="00" id="alarmMinutes" />
-
+    <input class="new-alarm__time-box" type="text" maxlength="2" value ="00" id="newAlarmMinutes" />
 
 
 
@@ -44,13 +43,6 @@
     <input type="text" class="new-alarm__minutes-slider" value="" />
 
 
-
-
-
-<!-- <p id="test-hour" value="test">hi</p>
-
-<input type="text" id="alarmHours" name="example_name" value="" /> -->
-<!-- <input type="text" id="alarmMinutes" name="example_name" value="" /> -->
 
 <div id="new-alarm__days-selector-wrapper">
   
@@ -73,22 +65,30 @@
 
 
 <div class="new-alarm__action-buttons">
- <button><a href="#" onClick='alarmReset()'>Cancel</a></button>
- <button><a href ="#" onClick='alarmSet()'>Save</a></button> 
+  <button><a href="#" onClick='alarmResset()'>Cancel</a></button>
+ <button><a href ="index.html" onClick='alarmSave()'>Save</a></button> 
 </div>
 
  </div>
- 
+
+
+
 
 
  <script type='text/javascript'>
 
-  function alarmReset(){
-  localStorage.removeItem('StoreHours');
-  localStorage.removeItem('StoreMinutes');
-  location.reload();
 
-}
+  //show time in header
+var headerTime = document.getElementById('iphone-header__time');
+
+// display current time
+var currentTime = setInterval(function(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  headerTime.textContent = (hours) + ":" + (minutes) + "";
+},1000);
+
 
 //function for persistent checkbox     
 var formValues = JSON.parse(localStorage.getItem('formValues')) || {};
@@ -115,29 +115,25 @@ $.each(formValues, function(key, value) {
 //storage for values from slider
 var $hours = $(".new-alarm__hours-slider"),
     $minutes = $(".new-alarm__minutes-slider"),
-    $from = $("#alarmHours"),
-    $to = $("#alarmMinutes"),
+    $newhours = $("#newAlarmHours"),
+    $newminutes = $("#newAlarmMinutes"),
     single,
     min = 0,
-    max = 1000,
-    to,
-    from;
+    max = 1000;
 
 
 
 var updateValuesHours = function () {
-    $from.prop("value", from);
-  localStorage.setItem( 'StoreHours', from); 
-  let localHours = localStorage.getItem("StoreHours"); 
+    $newhours.prop("value", from);
+  localStorage.setItem( 'newStoreHours', from); 
+  let localHours = localStorage.getItem("newStoreHours"); 
   console.log(localHours); 
-
-
 };
 
 var updateValuesMinutes = function(){
-  $to.prop("value", to);
-  localStorage.setItem( 'StoreMinutes', to); 
-  let localMinutes = localStorage.getItem("StoreMinutes"); 
+  $newminutes.prop("value", to);
+  localStorage.setItem( 'newStoreMinutes', to); 
+  let localMinutes = localStorage.getItem("newStoreMinutes"); 
   console.log(localMinutes); 
 };
 
@@ -174,10 +170,10 @@ $hours.ionRangeSlider({
 
 (function () { 
   from = 0;
-  $to.prop("value", 0);
-  if (localStorage.getItem("StoreHours"))  {
-    $from.prop("value", localStorage.getItem("StoreHours"));
-    to = $from.prop;
+  $newminutes.prop("value", 0);
+  if (localStorage.getItem("newStoreHours"))  {
+    $newhours.prop("value", localStorage.getItem("newStoreHours"));
+    to = $newhours.prop;
 }
 })();
 
@@ -231,39 +227,29 @@ $minutes.ionRangeSlider({
 
 (function () { 
   from = 0;
-  $to.prop("value", 0);
-  if (localStorage.getItem("StoreMinutes"))  {
-    $to.prop("value", localStorage.getItem("StoreMinutes"));
-    from = $to.prop;
+  $newminutes.prop("value", 0);
+  if (localStorage.getItem("newStoreMinutes"))  {
+    $newminutes.prop("value", localStorage.getItem("newStoreMinutes"));
+    from = $newminutes.prop;
 }
 })();
 
 minutes = $minutes.data("ionRangeSlider");
 
 
-//show time in header
-var headerTime = document.getElementById('iphone-header__time');
-
-// display current time
-var currentTime = setInterval(function(){
-  var date = new Date();
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  headerTime.textContent = (hours) + ":" + (minutes) + "";
-},1000);
 
 
 function alarmSet() {
-  var hr = document.getElementById('alarmHours');
-  var min = document.getElementById('alarmMinutes');
+  var hr = document.getElementById('newAlarmHours');
+  var min = document.getElementById('newAlarmMinutes');
   
-  var selectedHour = localStorage.getItem("StoreHours");
-  var selectedMin = localStorage.getItem("StoreMinutes")
+  var selectedHour = localStorage.getItem("newStoreHours");
+  var selectedMin = localStorage.getItem("newStoreMinutes")
 
 var alarmTime = (selectedHour) + ":" + (selectedMin);
     console.log('alarmTime:' + alarmTime);
-    document.getElementById('alarmHours').disabled = true;
-  document.getElementById('alarmMinutes').disabled = true;
+    document.getElementById('newAlarmHours').disabled = true;
+  document.getElementById('newAlarmMinutes').disabled = true;
 
   var headerTime = document.getElementById('iphone-header__time');
 
@@ -282,33 +268,43 @@ setInterval(function(){
   if (alarmTime == currentTime) {
     window.location = "alarm-ring.html";
     }
-
-    else if (alarmTime == "null:null"){
+      else if (alarmTime == "null:null"){
       console.log("Cannot leave time as zero");
     }
     else{
       window.location = "index.html";
-      // console.log("wtf");
     }
-},3000);
+
+},1000);
 
 }
 
+function alarmReset(){
+  localStorage.removeItem('newStoreHours');
+  localStorage.removeItem('newStoreMinutes');
+  location.reload();
 
-        function snooze() {
-  //           $to.prop("value", to);
-  // localStorage.setItem( 'StoreMinutes', to); 
-  // let localMinutes = localStorage.getItem("StoreMinutes" + 5); 
-  // console.log(localMinutes + 5); 
-localStorage.setItem( 'StoreMinutes', to); 
-//convert string to integer
-var localMinutes = parseInt(localStorage.getItem("StoreMinutes")); 
-localStorage.setItem('localMinutes', localMinutes ++)
-console.log(localMinutes); 
-};
+}
+//         function snooze() {
+//   //           $to.prop("value", to);
+//   // localStorage.setItem( 'newStoreMinutes', to); 
+//   // let localMinutes = localStorage.getItem("newStoreMinutes" + 5); 
+//   // console.log(localMinutes + 5); 
+// localStorage.setItem( 'newStoreMinutes', to); 
+// //convert string to integer
+// var localMinutes = parseInt(localStorage.getItem("newStoreMinutes")); 
+// localStorage.setItem('localMinutes', localMinutes ++)
+// console.log(localMinutes); 
+// };
 
    </script>
 
+<!--    <script type='text/javascript'>
+  function alarmSave(){
+      window.location = "index.html#new-alarm";
+  }
+</script>
+ -->
 
 
     

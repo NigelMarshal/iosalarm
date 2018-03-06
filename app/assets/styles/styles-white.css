@@ -7,7 +7,7 @@
 @import "modules/_alarm-active";
 @import "modules/_ios-header";
 @import "modules/_ion.rangeSlider";
-/*@import "modules/_ion.rangeSlider.skinNice";*/
+@import "modules/_ion.rangeSlider.skinNice-white";
+/*@import "ion-rangeslider/css/ion.rangeSlider.css";*/
 @import "modules/_alarm-slider";
-
 

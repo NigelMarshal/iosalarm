@@ -33,17 +33,23 @@ color: #FFFFFF;
     -webkit-transform: translate(-50%);
     -moz-transform: translate(-50%);
     transform: translate(-50%);
+
+    button{
+      border:none;
+      margin-right: 33px;
+   margin-left: 50px;
+      background-color:black;
     
   a{
-margin-right: 45px;
-    padding-left: 60px;
+
+
     display: inline;
     font-size: 18px;
     color: #FFFFFF;
     text-decoration: none;
     text-align: center;
     }
-
+}
   }
 
   .new-alarm__title{

@@ -49,25 +49,51 @@
     </div>
 
     <div class="alarm-timings__alarm-toggle">
-      <input id='ios-switch-5' class='ios-switch' type='checkbox' checked >
-      <label for='ios-switch-5' class='ios-switch-label'></label>
+      <input id="ios-switch-5" class="ios-switch" type="checkbox" checked >
+      <label for="ios-switch-5" class="ios-switch-label"></label>
     </div>
       
   </div>
 
-<a href="set-new-alarm.html" class="add-new__alarm">+</a>
+<a href="create-new-alarm.html" class="add-new__alarm">+</a>
 
 <a id="alarmCheck" onClick='alarmSet()'></a>
+<a id="alarmCheck" onClick='alarmSet2()'></a>
 </div>
 
 
 
+
+ <script type='text/javascript'>
+
+var url = document.referrer;
+
+function appendContent(){
+  if (url === "http://localhost:3000/create-new-alarm.html"){
+ $(".alarm-timings:last").append('<div class="alarm-timings__time-row"><div class="alarm-timings__time-details"><p class="alarm-timings__alarm-time" id="newAlarmHours"></p><p class="alarm-timings__alarm-time">:</p><p class="alarm-timings__alarm-time" id="newAlarmMinutes"></p><span class="alarm-timings__date-text">Weekend</span></div><div class="alarm-timings__icon-wrapper"><a href="set-new-alarm.html"><p class="icon-settings"></p></a></div><div class="alarm-timings__alarm-toggle"><input id="ios-switch-6" class="ios-switch" type="checkbox" checked ><label for="ios-switch-6" class="ios-switch-label"></label></div></div>');
+}
+ 
+else{
+  console.log("Please enter values")
+}
+}
+
+appendContent();
+
+
+ </script>
+
 <script type='text/javascript'>
    window.onload = function (){
         var hoursV = localStorage.getItem("StoreHours");
+        var hoursV2 = localStorage.getItem("newStoreHours");
         var minutesV = localStorage.getItem("StoreMinutes");
+        var minutesV2 = localStorage.getItem("newStoreMinutes");
+
         document.getElementById("alarmHours").innerHTML = hoursV;
+         document.getElementById("newAlarmHours").innerHTML = hoursV2;
         document.getElementById("alarmMinutes").innerHTML = minutesV; 
+        document.getElementById("newAlarmMinutes").innerHTML = minutesV2; 
       }
 
    $('.ios-switch').change(function(){
@@ -92,6 +118,47 @@ var currentTime = setInterval(function(){
   headerTime.textContent = (hours) + ":" + (minutes) + "";
 },1000);
 
+
+
+function alarmSet2() {
+  var hr = document.getElementById('newAlarmHours');
+  var min = document.getElementById('newAlarmMinutes');
+  
+  var selectedHour = localStorage.getItem("newStoreHours");
+  var selectedMin = localStorage.getItem("newStoreMinutes")
+
+var alarmTime = (selectedHour) + ":" + (selectedMin);
+    console.log('alarmTime:' + alarmTime);
+    document.getElementById('newAlarmHours').disabled = true;
+  document.getElementById('newAlarmMinutes').disabled = true;
+
+  var headerTime = document.getElementById('iphone-header__time');
+
+/*function to calcutate the current time 
+then compare it to the alarmtime 
+*/
+
+setInterval(function(){
+
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  
+  var currentTime = headerTime.textContent = (hours) + ":" + (minutes) + "";
+
+  if (alarmTime == currentTime) {
+    window.location = "alarm-ring.html";
+    }
+      else if (alarmTime == "null:null"){
+      console.log("Cannot leave time as zero");
+    }
+    else{
+      window.location = "index.html";
+    }
+
+},1000);
+
+}
 
 function alarmSet() {
   var hr = document.getElementById('alarmHours');
@@ -129,6 +196,8 @@ setInterval(function(){
 
 setInterval(function () {document.getElementById("alarmCheck").click();}, 1000)
  </script>
+
+
 
 </body>
 
