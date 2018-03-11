@@ -3,16 +3,17 @@
   .disabled-row{
       opacity:0.5;
     }
-
+  
   .active-row{
     opacity:1;
   }
-
+  .hidden-trigger{
+    display:none;
+  }
 
   &__time-row{
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
-  Helvetica, Arial, "Lucida Grande", sans-serif;
-    padding:20px;
+    font-family: "HelveticaNeue-Light", sans-serif;
+    padding: 40px 0px 60px 0px;
     border-bottom:solid 1px $light-gray;
 
 
@@ -55,7 +56,7 @@
  .icon-settings{
   text-align:center;
   color:$light-gray;
-    position: relative;
+    position: absolute;
     left: -50%;
 }
 }

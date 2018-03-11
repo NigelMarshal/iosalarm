@@ -405,10 +405,13 @@ img{
     opacity:1;
   }
 
+.alarm-timings .hidden-trigger{
+    display:none;
+  }
+
 .alarm-timings__time-row{
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
-  Helvetica, Arial, "Lucida Grande", sans-serif;
-    padding:20px;
+    font-family: "HelveticaNeue-Light", sans-serif;
+    padding: 40px 0px 60px 0px;
     border-bottom:solid 1px #9B9B9B;
   }
 
@@ -452,7 +455,7 @@ img{
 .alarm-timings__time-row .alarm-timings__icon-wrapper .icon-settings{
   text-align:center;
   color:#9B9B9B;
-    position: relative;
+    position: absolute;
     left: -50%;
 }
 

@@ -1,87 +1,90 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
-  <title>ios Alarm App3 - Set New Alarm</title>
-  <meta name="keywords" content="ios, app3, Moustachio, gari, water, eba">
-  <meta name="description" content="ios Alarm screens in HTML, CSS and JS">
-  <link rel="stylesheet" type="text/css" href="temp/styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+    <title>ios Alarm App3 - Set New Alarm</title>
+    <meta name="keywords" content="ios, app3, Moustachio, gari, water, eba">
+    <meta name="description" content="ios Alarm screens in HTML, CSS and JS">
+    <link rel="stylesheet" type="text/css" href="temp/styles/styles.css">
 
 
 
 </head>
+
 <body>
-  <header class="iphone-header">
-      <ul class="iphone-header__connection-icons">
-      <li class="icon-carrier_signal"></li>
-      <li>CARRIER</li>
-      <li class="icon-wifi_icon"></li>
-      </ul>
+    <header class="iphone-header">
+        <ul class="iphone-header__connection-icons">
+            <li class="icon-carrier_signal"></li>
+            <li>CARRIER</li>
+            <li class="icon-wifi_icon"></li>
+        </ul>
 
-      <ul class="iphone-header__status-icons">
-      <li class="icon-bluetooth"></li>
-      <li>60%</li>
-      <li class="icon-battery"></li>
-      </ul>
- 
-    <p id="iphone-header__time"></p>
-  </header>
+        <ul class="iphone-header__status-icons">
+            <li class="icon-bluetooth"></li>
+            <li>60%</li>
+            <li class="icon-battery"></li>
+        </ul>
 
-<div class="new-alarm__wrapper">
-<p class="new-alarm__title">New Alarm</p>
+        <p id="iphone-header__time"></p>
+    </header>
 
-    <input class="new-alarm__time-box" type="text" maxlength="2"  value ="00" id="alarmHours" />
-    <span class="new-alarm__time-seperator">:</span>
-    <input class="new-alarm__time-box" type="text" maxlength="2" value ="00" id="alarmMinutes" />
+    <div class="new-alarm__wrapper">
+        <p class="new-alarm__title">New Alarm</p>
 
-
-
-
-    <input type="text" class="new-alarm__hours-slider" value="" />
-    <input type="text" class="new-alarm__minutes-slider" value="" />
+        <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="alarmHours" />
+        <span class="new-alarm__time-seperator">:</span>
+        <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="alarmMinutes" />
 
 
 
 
+        <input type="text" class="new-alarm__hours-slider" value="" />
+        <input type="text" class="new-alarm__minutes-slider" value="" />
 
-<!-- <p id="test-hour" value="test">hi</p>
+
+
+
+
+        <!-- <p id="test-hour" value="test">hi</p>
 
 <input type="text" id="alarmHours" name="example_name" value="" /> -->
-<!-- <input type="text" id="alarmMinutes" name="example_name" value="" /> -->
+        <!-- <input type="text" id="alarmMinutes" name="example_name" value="" /> -->
 
-<div id="new-alarm__days-selector-wrapper">
-  
-<input type="checkbox" id="sunday"/>
-  <label for="sunday">S</label>
-  <input type="checkbox" id="monday"/>
-  <label for="monday">M</label>
-  <input type="checkbox" id="tuesday"/>
-  <label for="tuesday">T</label>
-  <input type="checkbox" id="wednesday"/>
-  <label for="wednesday">W</label>
-  <br/>
-  <input type="checkbox" id="thursday" />
-  <label for="thursday">T</label>
-  <input type="checkbox" id="friday" />
-  <label for="friday">F</label>
-  <input type="checkbox" id="saturday" />
-  <label for="saturday">S</label>
-</div>
+        <div id="new-alarm__days-selector-wrapper">
 
-
-<div class="new-alarm__action-buttons">
- <button><a href="#" onClick='alarmReset()'>Cancel</a></button>
- <button><a href ="#" onClick='alarmSet()'>Save</a></button> 
-</div>
-
- </div>
- 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js'></script>
-  <script src="assets/scripts/set-alarms.js"></script>
+            <input type="checkbox" id="sunday" />
+            <label for="sunday">S</label>
+            <input type="checkbox" id="monday" />
+            <label for="monday">M</label>
+            <input type="checkbox" id="tuesday" />
+            <label for="tuesday">T</label>
+            <input type="checkbox" id="wednesday" />
+            <label for="wednesday">W</label>
+            <br/>
+            <input type="checkbox" id="thursday" />
+            <label for="thursday">T</label>
+            <input type="checkbox" id="friday" />
+            <label for="friday">F</label>
+            <input type="checkbox" id="saturday" />
+            <label for="saturday">S</label>
+        </div>
 
 
-    
+        <div class="new-alarm__action-buttons">
+            <button><a href="#" onClick='alarmReset()'>Cancel</a></button>
+            <button><a href ="#" onClick='alarmSet()'>Save</a></button>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js'></script>
+    <script src="assets/scripts/set-alarms.js"></script>
+
+
+
 </body>
+
 </html>
