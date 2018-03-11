@@ -28,9 +28,13 @@ body{
 
 .new-alarm__wrapper .new-alarm__action-buttons{
 	border:none;
-}		    
+}		
 
-.new-alarm__wrapper .new-alarm__action-buttons a{
+.new-alarm__wrapper .new-alarm__action-buttons button{
+	background-color:white;
+}    
+
+.new-alarm__wrapper .new-alarm__action-buttons button a{
 	color:black;
 }
 
@@ -46,4 +50,5 @@ border:solid 1px #4A4A4A;
 .new-alarm__wrapper .new-alarm__small-text{
 	color:black;
 }
+
 

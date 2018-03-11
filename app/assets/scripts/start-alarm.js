@@ -2,8 +2,7 @@ var url = document.referrer;
 
 function appendContent() {
 
-    // if (url === "http://localhost:3000/create-new-alarm.html") {
-            // var n = str.endsWith("universe.");
+
           if (url.endsWith("new-alarm.html")){
         $(".alarm-timings:last").append('<div class="alarm-timings__time-row"><div class="alarm-timings__time-details"><p class="alarm-timings__alarm-time" id="newAlarmHours"></p><p class="alarm-timings__alarm-time">:</p><p class="alarm-timings__alarm-time" id="newAlarmMinutes"></p><span class="alarm-timings__date-text">Weekday</span></div><div class="alarm-timings__icon-wrapper"><a class="icon-settings" href="set-new-alarm.html"></a></div><div class="alarm-timings__alarm-toggle"><input id="ios-switch-6" class="ios-switch" type="checkbox" checked ><label for="ios-switch-6" class="ios-switch-label"></label></div></div>');
     } else {
@@ -130,3 +129,7 @@ setInterval(function() {
 setInterval(function() {
     document.getElementById("alarmCheck2").click();
 }, 1000)
+
+    document.getElementById('css-switch').onclick = function () { 
+    document.getElementById('styles-white').href = 'temp/styles/styles-white.css';
+};

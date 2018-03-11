@@ -8,3 +8,12 @@ img{
 	max-width: 100%;
 	height:auto;
 }
+
+#css-switch{
+	color:white;
+	text-decoration: none;
+}
+
+.change-theme-wrapper{
+	padding:20px;
+}

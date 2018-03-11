@@ -266,3 +266,7 @@ function snooze() {
     localStorage.setItem('localMinutes', localMinutes++)
     console.log(localMinutes);
 };
+
+ document.getElementById('css-switch').onclick = function () { 
+    document.getElementById('styles-white').href = 'temp/styles/styles-white.css';
+};

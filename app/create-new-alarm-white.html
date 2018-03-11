@@ -8,7 +8,7 @@
     <meta name="keywords" content="ios, app3, Moustachio, gari, water, eba">
     <meta name="description" content="ios Alarm screens in HTML, CSS and JS">
     <link rel="stylesheet" type="text/css" href="temp/styles/styles.css">
-        <link rel="stylesheet" type="text/css" href="temp/styles/styles-white.css">
+       <link rel="stylesheet" type="text/css" href="temp/styles/styles-white.css">
 
 
 
@@ -32,12 +32,11 @@
     </header>
 
     <div class="new-alarm__wrapper">
-        <p class="new-alarm__title">New Alarm</p>
+        <p class="new-alarm__title">Set New Alarm</p>
 
-        <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="alarmHours" />
+        <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="newAlarmHours" />
         <span class="new-alarm__time-seperator">:</span>
-        <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="alarmMinutes" />
-
+        <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="newAlarmMinutes" />
 
 
 
@@ -45,13 +44,6 @@
         <input type="text" class="new-alarm__minutes-slider" value="" />
 
 
-
-
-
-        <!-- <p id="test-hour" value="test">hi</p>
-
-<input type="text" id="alarmHours" name="example_name" value="" /> -->
-        <!-- <input type="text" id="alarmMinutes" name="example_name" value="" /> -->
 
         <div id="new-alarm__days-selector-wrapper">
 
@@ -76,15 +68,15 @@
         <div class="new-alarm__action-buttons">
             <button><a href="#" onClick='alarmReset()'>Cancel</a></button>
             <button><a href ="#" onClick='alarmSet()'>Save</a></button>
+
         </div>
 
     </div>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js'></script>
-    <script src="assets/scripts/set-alarms.js"></script>
-
-
+    <script src="assets/scripts/create-alarms.js"></script>
 
 </body>
 
