@@ -172,10 +172,6 @@ function alarmSet() {
     var selectedMin = localStorage.getItem("newStoreMinutes")
 
     var alarmTime = (selectedHour) + ":" + (selectedMin);
-    console.log('alarmTime:' + alarmTime);
-    document.getElementById('newAlarmHours').disabled = true;
-    document.getElementById('newAlarmMinutes').disabled = true;
-
     var headerTime = document.getElementById('iphone-header__time');
 
     /*function to calcutate the current time 

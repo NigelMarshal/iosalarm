@@ -59,10 +59,6 @@ function alarmSet2() {
     var selectedMin2 = localStorage.getItem("newStoreMinutes")
 
     var alarmTime2 = (selectedHour2) + ":" + (selectedMin2);
-    console.log('alarmTime2:' + alarmTime2);
-    document.getElementById('newAlarmHours').disabled = true;
-    document.getElementById('newAlarmMinutes').disabled = true;
-
     var headerTime2 = document.getElementById('iphone-header__time');
 
     /*function to calcutate the current time 
@@ -82,7 +78,7 @@ function alarmSet2() {
         } else if (alarmTime2 == "null:null") {
             console.log("Cannot leave time as zero");
         } else {
-            console.log("Test");
+            console.log("It's not yet time");
         }
 
     }, 1000);

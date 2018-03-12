@@ -398,12 +398,11 @@ img{
 
 @media (min-width: 320px) and (max-width: 480px) {
 .iphone-header{
-	    font-size: 13px;
+	    font-size: 11px;
 }
 
  .iphone-header .icon-battery:before{
-			margin-top:-5px;
-	    }
+			font-size:18px;	    }
 }
 
 .alarm-timings .disabled-row{
