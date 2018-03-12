@@ -9,29 +9,6 @@ var currentTime = setInterval(function() {
     headerTime.textContent = (hours) + ":" + (minutes) + "";
 }, 1000);
 
-
-//function for persistent checkbox     
-var formValues = JSON.parse(localStorage.getItem('formValues')) || {};
-var $checkboxes = $("#new-alarm__days-selector-wrapper :checkbox");
-
-function updateStorage() {
-    $checkboxes.each(function() {
-        formValues[this.id] = this.checked;
-    });
-
-    localStorage.setItem("formValues", JSON.stringify(formValues));
-}
-
-$checkboxes.on("change", function() {
-    updateStorage();
-});
-
-// On page load
-$.each(formValues, function(key, value) {
-    $("#" + key).prop('checked', value);
-});
-
-
 //storage for values from slider
 var $hours = $(".new-alarm__hours-slider"),
     $minutes = $(".new-alarm__minutes-slider"),
@@ -212,3 +189,55 @@ function alarmReset() {
 document.getElementById('css-switch').onclick = function() {
     document.getElementById('styles-white').href = 'temp/styles/styles-white.css';
 };
+
+///checkbox
+
+//function for persistent checkbox     
+var formValues = JSON.parse(localStorage.getItem('formValues')) || {};
+var $checkboxes = $("#new-alarm__days-selector-wrapper :checkbox");
+
+function outputResult(isWeekday, isWeekend) {
+
+    var output = "Today"
+    if (isWeekday && isWeekend) output = "Both";
+    else if (isWeekday) output = "Weekday";
+    else if (isWeekend) output = "Weekend";
+    localStorage.setItem('Alarm2day', output);
+}
+
+function checkDay() {
+
+    var isWeekday = false;
+    var isWeekend = false;
+
+    $checkboxes.each(function() {
+        if (this.checked) {
+            if (this.id == "friday" || this.id == "saturday") isWeekend = true;
+            else isWeekday = true;
+        }
+    });
+
+    outputResult(isWeekday, isWeekend);
+}
+
+function updateStorage() {
+
+    $checkboxes.each(function() {
+        formValues[this.id] = this.checked;
+    });
+
+    localStorage.setItem("formValues", JSON.stringify(formValues));
+
+    checkDay();
+}
+
+$checkboxes.on("change", function() {
+    updateStorage();
+});
+
+// On page load
+$.each(formValues, function(key, value) {
+    $("#" + key).prop('checked', value);
+});
+
+document.getElementById("alarm2day").textContent = localStorage.getItem("Alarm2day");

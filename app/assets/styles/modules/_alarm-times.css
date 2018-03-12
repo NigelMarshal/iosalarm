@@ -37,6 +37,7 @@
       font-weight:300;
       color:$light-gray;
       display:flex;
+      padding-left: 7px;
     
      }
 
