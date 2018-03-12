@@ -176,12 +176,12 @@ function alarmSet() {
 }
 
 function alarmReset() {
-    localStorage.removeItem('newStoreHours');
-    localStorage.removeItem('newStoreMinutes');
+    localStorage.setItem('newStoreHours', 00);
+    localStorage.setItem('newStoreMinutes', 00);
     localStorage.removeItem('NewMinsEndPosition');
     localStorage.removeItem('NewHoursEndPosition');
+    localStorage.removeItem('formValues');
     location.reload();
-    alert("Values have been reset. Please reselect hours and minutes!");
 
 
 }

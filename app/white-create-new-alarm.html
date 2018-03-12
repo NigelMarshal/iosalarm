@@ -7,7 +7,7 @@
         <meta name="keywords" content="ios, app3, Moustachio, gari, water, eba">
         <meta name="description" content="ios Alarm screens in HTML, CSS and JS">
         <link rel="stylesheet" type="text/css" href="temp/styles/styles.css">
-        <link type="text/css" rel="stylesheet" media="all" href="temp/styles/styles.css" id="styles-white" />
+        <link rel="stylesheet" type="text/css" href="temp/styles/styles-white.css">
     </head>
     <body>
         <header class="iphone-header">
@@ -24,10 +24,10 @@
             <p id="iphone-header__time"></p>
         </header>
         <div class="new-alarm__wrapper">
-            <p class="new-alarm__title">New Alarm</p>
-            <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="alarmHours" />
+            <p class="new-alarm__title">Set New Alarm</p>
+            <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="newAlarmHours" />
             <span class="new-alarm__time-seperator">:</span>
-            <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="alarmMinutes" />
+            <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="newAlarmMinutes" />
             <input type="text" class="new-alarm__hours-slider" value="" />
             <input type="text" class="new-alarm__minutes-slider" value="" />
             <div id="new-alarm__days-selector-wrapper">
@@ -52,11 +52,11 @@
                 <button><a href ="#" onClick='alarmSet()'>Save</a></button>
             </div>
         </div>
-         <div class="change-theme-wrapper">
-            <a id="css-switch" href="white-set-new-alarm.html">White Theme</a>
+      <div class="change-theme-wrapper">
+            <a id="css-switch" href="create-new-alarm.html">Black Theme</a>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js'></script>
-        <script src="assets/scripts/set-alarms.js"></script>
+        <script src="assets/scripts/create-alarms.js"></script>
     </body>
 </html>

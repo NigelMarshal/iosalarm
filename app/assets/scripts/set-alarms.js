@@ -1,10 +1,10 @@
 function alarmReset() {
-    localStorage.removeItem('StoreHours');
-    localStorage.removeItem('StoreMinutes');
+    localStorage.setItem('StoreHours', 00);
+    localStorage.setItem('StoreMinutes', 00);
     localStorage.removeItem('MinsEndPosition');
     localStorage.removeItem('HoursEndPosition');
+     localStorage.removeItem('formValues');
     location.reload();
-    alert("Values have been reset. Please reselect hours and minutes!");
 }
 
 //storage for values from slider
