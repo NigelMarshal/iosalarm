@@ -419,7 +419,7 @@ img{
   }
 
 .alarm-timings__time-row{
-    font-family: "HelveticaNeue-Light", sans-serif;
+    font-family: HelveticaNeue-Thin;
     padding: 40px 0px 60px 0px;
     border-bottom:solid 1px #9B9B9B;
   }
@@ -655,6 +655,7 @@ width:100%;
 margin:0 auto;
 display:inline-block;
 text-align:center;
+font-family: HelveticaNeue-Thin;
 }
 
 .iphone-header__connection-icons{

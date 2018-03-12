@@ -12,7 +12,7 @@
   }
 
   &__time-row{
-    font-family: "HelveticaNeue-Light", sans-serif;
+    font-family: HelveticaNeue-Thin;
     padding: 40px 0px 60px 0px;
     border-bottom:solid 1px $light-gray;
 

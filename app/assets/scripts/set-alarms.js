@@ -102,20 +102,6 @@ $hours.ionRangeSlider({
     min: 00,
     max: 23,
     from: hsp,
-    values: [
-        "00", "01",
-        "02", "03",
-        "04", "05",
-        "06", "07",
-        "08", "09",
-        "10", "11",
-        "12", "13",
-        "14", "15",
-        "16", "17",
-        "18", "19",
-        "20", "21",
-        "22", "23"
-    ],
     step: 1,
     grid_snap: true,
     grid_num: 10,
@@ -149,33 +135,6 @@ $minutes.ionRangeSlider({
     min: 00,
     max: 59,
     from: msp,
-    values: [
-        "00", "01",
-        "02", "03",
-        "04", "05",
-        "06", "07",
-        "08", "09",
-        "10", "11",
-        "12", "13",
-        "14", "15",
-        "16", "17",
-        "18", "19",
-        "20", "21",
-        "22", "23",
-        "24", "25",
-        "26", "27",
-        "28", "29",
-        "30", "31",
-        "32", "33",
-        "34", "35",
-        "36", "37",
-        "38", "39",
-        "40", "41",
-        "42", "43",
-        "44", "45",
-        "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56",
-        "57", "58", "59",
-    ],
     step: 1,
     grid_snap: true,
     grid_num: 10,
@@ -248,7 +207,6 @@ function alarmSet() {
             console.log("Cannot leave time as zero");
         } else {
             window.location = "index.html";
-            // console.log("wtf");
         }
     }, 1000);
 
@@ -256,12 +214,7 @@ function alarmSet() {
 
 
 function snooze() {
-    //           $to.prop("value", to);
-    // localStorage.setItem( 'StoreMinutes', to); 
-    // let localMinutes = localStorage.getItem("StoreMinutes" + 5); 
-    // console.log(localMinutes + 5); 
-    localStorage.setItem('StoreMinutes', to);
-    //convert string to integer
+     localStorage.setItem('StoreMinutes', to);
     var localMinutes = parseInt(localStorage.getItem("StoreMinutes"));
     localStorage.setItem('localMinutes', localMinutes++)
     console.log(localMinutes);
