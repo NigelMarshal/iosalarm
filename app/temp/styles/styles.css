@@ -466,6 +466,7 @@ img{
   color:#9B9B9B;
     position: absolute;
     left: -50%;
+    font-size:20px;
 }
 
 .alarm-timings .ios-switch {
@@ -477,7 +478,7 @@ img{
   display: block;
   position: relative;
   box-sizing: border-box;
-  width: 48px;
+  width: 40px;
   height: 25px;
   border-radius:20px;
   border: 2px solid transparent;
@@ -507,8 +508,8 @@ img{
 }
 
 .alarm-timings .ios-switch:checked + .ios-switch-label::before {
-  -webkit-transform: translateX(35px);
-          transform: translateX(35px);
+  -webkit-transform: translateX(25px);
+          transform: translateX(25px);
   border-color: white;
 }
 
@@ -595,6 +596,8 @@ color: #FFFFFF;
 font-size: 18px;
 color: #FFFFFF;
 text-align: center;
+    position: relative;
+    bottom: 60px;
   }
 
 .new-alarm__wrapper #new-alarm__days-selector-wrapper{

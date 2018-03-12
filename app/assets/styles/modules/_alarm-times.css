@@ -59,6 +59,7 @@
   color:$light-gray;
     position: absolute;
     left: -50%;
+    font-size:20px;
 }
 }
   }
@@ -72,7 +73,7 @@
   display: block;
   position: relative;
   box-sizing: border-box;
-  width: 48px;
+  width: 40px;
   height: 25px;
   border-radius:20px;
   border: 2px solid transparent;
@@ -103,7 +104,7 @@
 }
 
 .ios-switch:checked + .ios-switch-label::before {
-  transform: translateX(35px);
+  transform: translateX(25px);
   border-color: white;
 }
 }
