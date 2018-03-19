@@ -78,29 +78,10 @@ var sound = new Audio("https://freespecialeffects.co.uk/soundfx/clocks/clock_chi
 sound.loop = true;
 
 function ringAlarm() {
-    sound.pause();
+    sound.play();
 }
 window.onload = ringAlarm;
 
-// var updateValuesMinutes = function() {
-//     $to.prop("value", to);
-//     localStorage.setItem('StoreMinutes', to);
-//     //convert string to integer
-
-// };
-
-// function snooze() {
-//     let localMinutes = parseInt(localStorage.getItem("StoreMinutes"));
-//     localStorage.setItem('localMinutes', localMinutes += 5);
-//     localStorage.setItem('StoreMinutes', localMinutes);
-
-
-//     let localAMinutes = parseInt(localStorage.getItem("newStoreMinutes"));
-//     localStorage.setItem('localAMinutes', localAMinutes += 5);
-//     localStorage.setItem('newStoreMinutes', localAMinutes);
-
-//     window.location = "index.html";
-// }
 document.getElementById('css-switch').onclick = function() {
     document.getElementById('styles-white').href = 'temp/styles/styles-white.css';
 };
