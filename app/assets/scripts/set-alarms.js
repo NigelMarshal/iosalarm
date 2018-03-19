@@ -10,7 +10,7 @@ var alldays = {
 };
 
 function resetonload() {
-    if (urlreset.endsWith("index.html")) {
+    if (urlreset.endsWith("index.html") || ("/app/") ) {
         localStorage.setItem('StoreHours', 00);
         localStorage.setItem('StoreMinutes', 00);
         localStorage.setItem('MinsEndPosition', 00);

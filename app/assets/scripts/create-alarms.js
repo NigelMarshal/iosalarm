@@ -244,6 +244,15 @@ $.each(storeddays, function(key, value) {
     $("#" + key).prop('checked', value);
 });
 
+var storeddays = JSON.parse(localStorage.getItem('storedalarmdays')) || {};
+var $checkboxes = $("#new-alarm__days-selector-wrapper :checkbox");
+
+function setinitial() {
+    document.getElementById("newAlarmHours").value = storedhours;
+    document.getElementById("newAlarmMinutes").value = storedminutes;
+}
+setinitial();
+
 var resethours = localStorage.getItem("newhoursalarm");
 var resetminutes = localStorage.getItem("newminutesalarm");
 
@@ -266,11 +275,3 @@ document.getElementById("getallvalues").onclick = function getvalues() {
 }
 
 
-var storeddays = JSON.parse(localStorage.getItem('storedalarmdays')) || {};
-var $checkboxes = $("#new-alarm__days-selector-wrapper :checkbox");
-
-function setinitial() {
-    document.getElementById("newAlarmHours").value = storedhours;
-    document.getElementById("newAlarmMinutes").value = storedminutes;
-}
-setinitial();
