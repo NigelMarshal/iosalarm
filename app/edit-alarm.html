@@ -24,10 +24,10 @@
             <p id="iphone-header__time"></p>
         </header>
         <div class="new-alarm__wrapper">
-            <p class="new-alarm__title">New Alarm</p>
-            <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="alarmHours" />
+            <p class="new-alarm__title">Set New Alarm</p>
+            <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="newAlarmHours" />
             <span class="new-alarm__time-seperator">:</span>
-            <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="alarmMinutes" />
+            <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="newAlarmMinutes" />
             <input type="text" class="new-alarm__hours-slider" value="" />
             <input type="text" class="new-alarm__minutes-slider" value="" />
             <div id="new-alarm__days-selector-wrapper">
@@ -49,14 +49,11 @@
             </div>
             <div class="new-alarm__action-buttons">
                 <button><a href="#" onClick='alarmReset()'>Cancel</a></button>
-                <button><a href ="#" onClick='alarmSet()'>Save</a></button>
+                <button><a id="getallvalues" href ="#">Save</a></button>
             </div>
-        </div>
-         <div class="change-theme-wrapper">
-            <a id="css-switch" href="white-set-new-alarm.html">White Theme</a>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js'></script>
-        <script src="assets/scripts/set-alarms.js"></script>
+        <script src="assets/scripts/create-alarms.js"></script>
     </body>
 </html>

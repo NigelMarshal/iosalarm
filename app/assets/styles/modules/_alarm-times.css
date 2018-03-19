@@ -13,7 +13,7 @@
 
   &__time-row{
     font-family: HelveticaNeue-Thin;
-    padding: 40px 0px 60px 0px;
+    padding: 40px 0px 74px 0px;
     border-bottom:solid 1px $light-gray;
 
 
@@ -37,6 +37,7 @@
       font-weight:300;
       color:$light-gray;
       display:flex;
+      font-size: 14px;
       padding-left: 7px;
     
      }
@@ -51,8 +52,9 @@
 
 .alarm-timings__icon-wrapper {
     display:inline-block;
-    position: relative;
-    left: 10%;
+    position: absolute;
+    left: 50%;
+    margin-top:12px;
 
  .icon-settings{
   text-align:center;
@@ -121,7 +123,7 @@
     text-decoration: none;
     font-size: 45px;
     font-weight: 300;
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 80%;
     transform: translate(-50%, 100%);

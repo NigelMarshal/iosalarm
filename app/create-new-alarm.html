@@ -9,54 +9,55 @@
         <link rel="stylesheet" type="text/css" href="temp/styles/styles.css">
         <link type="text/css" rel="stylesheet" media="all" href="temp/styles/styles.css" id="styles-white" />
     </head>
-    <body>
-        <header class="iphone-header">
-            <ul class="iphone-header__connection-icons">
-                <li class="icon-carrier_signal"></li>
-                <li>CARRIER</li>
-                <li class="icon-wifi_icon"></li>
-            </ul>
-            <ul class="iphone-header__status-icons">
-                <li class="icon-bluetooth"></li>
-                <li>60%</li>
-                <li class="icon-battery"></li>
-            </ul>
-            <p id="iphone-header__time"></p>
-        </header>
-        <div class="new-alarm__wrapper">
-            <p class="new-alarm__title">Set New Alarm</p>
-            <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="newAlarmHours" />
-            <span class="new-alarm__time-seperator">:</span>
-            <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="newAlarmMinutes" />
-            <input type="text" class="new-alarm__hours-slider" value="" />
-            <input type="text" class="new-alarm__minutes-slider" value="" />
-            <div id="new-alarm__days-selector-wrapper">
-                <input type="checkbox" id="sunday" />
-                <label for="sunday">S</label>
-                <input type="checkbox" id="monday" />
-                <label for="monday">M</label>
-                <input type="checkbox" id="tuesday" />
-                <label for="tuesday">T</label>
-                <input type="checkbox" id="wednesday" />
-                <label for="wednesday">W</label>
-                <br/>
-                <input type="checkbox" id="thursday" />
-                <label for="thursday">T</label>
-                <input type="checkbox" id="friday" />
-                <label for="friday">F</label>
-                <input type="checkbox" id="saturday" />
-                <label for="saturday">S</label>
-            </div>
-            <div class="new-alarm__action-buttons">
-                <button><a href="#" onClick='alarmReset()'>Cancel</a></button>
-                <button><a href ="#" onClick='alarmSet()'>Save</a></button>
-            </div>
+<body>
+    <header class="iphone-header">
+        <ul class="iphone-header__connection-icons">
+            <li class="icon-carrier_signal"></li>
+            <li>CARRIER</li>
+            <li class="icon-wifi_icon"></li>
+        </ul>
+        <ul class="iphone-header__status-icons">
+            <li class="icon-bluetooth"></li>
+            <li>60%</li>
+            <li class="icon-battery"></li>
+        </ul>
+        <p id="iphone-header__time"></p>
+    </header>
+    <div class="new-alarm__wrapper">
+        <p class="new-alarm__title">New Alarm</p>
+        <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="alarmHours" />
+        <span class="new-alarm__time-seperator">:</span>
+        <input class="new-alarm__time-box" type="text" maxlength="2" value="00" id="alarmMinutes" />
+        <input type="text" class="new-alarm__hours-slider" value="" />
+        <input type="text" class="new-alarm__minutes-slider" value="" />
+        <div id="new-alarm__days-selector-wrapper">
+            <input class="check" type="checkbox" id="Su" value="Su" />
+            <label for="Su">S</label>
+            <input class="check"  type="checkbox" id="Mo" value="Mo" />
+            <label for="Mo">M</label>
+            <input class="check"  type="checkbox" id="Tu" value="Tu" />
+            <label for="Tu">T</label>
+            <input class="check"  type="checkbox" id="We" value="We" />
+            <label for="We">W</label>
+            <br/>
+            <input class="check"  type="checkbox" id="Th" value="Th"/>
+            <label for="Th">T</label>
+            <input class="check"  type="checkbox" id="Fr" value="Fr" />
+            <label for="Fr">F</label>
+            <input class="check" type="checkbox" id="Sa" value="Sa"/>
+            <label for="Sa">S</label>
         </div>
-        <div class="change-theme-wrapper">
+        <div class="new-alarm__action-buttons">
+            <button><a href="#" onClick='alarmReset()'>Cancel</a></button>
+            <button id="getallvalues"><a href ="#">Save</a></button>
+        </div>
+    </div>
+         <div class="change-theme-wrapper">
             <a id="css-switch" href="white-create-new-alarm.html">White Theme</a>
+<a href ="index.html">View Alarms</a>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.js'></script>
-        <script src="assets/scripts/create-alarms.js"></script>
+        <script src="assets/scripts/set-alarms.js"></script>
     </body>
 </html>

@@ -1,3 +1,14 @@
+// function loadalarmvalues() {
+var alarmtimes = JSON.parse(localStorage.getItem("alarmtimeinfo"));
+var currentId = window.location.search;
+currentId = currentId.replace("?alarm=", '');
+var storedhours = (alarmtimes[currentId].alarmhours);
+var storedminutes = (alarmtimes[currentId].alarmminutes);
+var storedhoursposition = (alarmtimes[currentId].hourssliderposition);
+var storedminutesposition = (alarmtimes[currentId].minutessliderposition);
+var storedalarmdays = (alarmtimes[currentId].daysofalarm);
+// }
+// loadalarmvalues();
 //show time in header
 var headerTime = document.getElementById('iphone-header__time');
 
@@ -16,10 +27,6 @@ var $hours = $(".new-alarm__hours-slider"),
     $newminutes = $("#newAlarmMinutes"),
     $nhev = $("hoursEndValue"),
     $nmev = $("minutesEndValue");
-newHoursSliderPos = localStorage.getItem("NewHoursEndPosition"),
-    nhsp = newHoursSliderPos,
-    newMinsSliderPos = localStorage.getItem("NewMinsEndPosition"),
-    nmsp = newMinsSliderPos;
 
 
 //function to store slider position for new hours
@@ -60,14 +67,14 @@ var updateValuesHours = function() {
     $newhours.prop("value", from);
     localStorage.setItem('newStoreHours', from);
     let localHours = localStorage.getItem("newStoreHours");
-    console.log(localHours);
+    localStorage.setItem('newhoursalarm', localHours);
 };
 
 var updateValuesMinutes = function() {
     $newminutes.prop("value", to);
     localStorage.setItem('newStoreMinutes', to);
     let localMinutes = localStorage.getItem("newStoreMinutes");
-    console.log(localMinutes);
+    localStorage.setItem('newminutesalarm', localMinutes);
 };
 
 
@@ -76,7 +83,7 @@ $hours.ionRangeSlider({
     type: "single",
     min: 00,
     max: 23,
-    from: nhsp,
+    from: storedhoursposition,
     step: 1,
     grid_snap: true,
     grid_num: 10,
@@ -91,6 +98,7 @@ $hours.ionRangeSlider({
         updateValuesHours();
     }
 });
+
 
 (function() {
     from = 0;
@@ -109,7 +117,7 @@ $minutes.ionRangeSlider({
     type: "single",
     min: 00,
     max: 59,
-    from: nmsp,
+    from: storedminutesposition,
     step: 1,
     grid_snap: true,
     grid_num: 10,
@@ -141,39 +149,6 @@ minutes = $minutes.data("ionRangeSlider");
 
 
 
-function alarmSet() {
-    var hr = document.getElementById('newAlarmHours');
-    var min = document.getElementById('newAlarmMinutes');
-
-    var selectedHour = localStorage.getItem("newStoreHours");
-    var selectedMin = localStorage.getItem("newStoreMinutes")
-
-    var alarmTime = (selectedHour) + ":" + (selectedMin);
-    var headerTime = document.getElementById('iphone-header__time');
-
-    /*function to calcutate the current time 
-    then compare it to the alarmtime 
-    */
-
-    setInterval(function() {
-
-        var date = new Date();
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-
-        var currentTime = headerTime.textContent = (hours) + ":" + (minutes) + "";
-
-        if (alarmTime == currentTime) {
-            window.location = "alarm-ring.html";
-        } else if (alarmTime == "null:null") {
-            console.log("Cannot leave time as zero");
-        } else {
-            window.location = "index.html";
-        }
-
-    }, 1000);
-
-}
 
 function alarmReset() {
     localStorage.setItem('newStoreHours', 00);
@@ -240,4 +215,62 @@ $.each(formValues, function(key, value) {
     $("#" + key).prop('checked', value);
 });
 
-document.getElementById("alarm2day").textContent = localStorage.getItem("Alarm2day");
+function insertcheck() {
+
+    $checkboxes.each(function() {
+        storedalarmdays[this.id] = this.checked;
+    });
+
+    localStorage.setItem("storeddays", JSON.stringify(storedalarmdays));
+
+}
+
+
+
+var storeddays = JSON.parse(localStorage.getItem('storedalarmdays')) || {};
+var $checkboxes = $("#new-alarm__days-selector-wrapper :checkbox");
+
+function setinitial() {
+    document.getElementById("newAlarmHours").value = storedhours;
+    document.getElementById("newAlarmMinutes").value = storedminutes;
+}
+setinitial();
+
+function checkboxalarm() {
+
+    $checkboxes.each(function() {
+        storeddays[this.id] = this.checked;
+    });
+    localStorage.setItem("storedalarmdays", JSON.stringify(storeddays));
+
+}
+
+$checkboxes.on("change", function() {
+    checkboxalarm();
+});
+
+// On page load
+$.each(storeddays, function(key, value) {
+    $("#" + key).prop('checked', value);
+});
+
+var resethours = localStorage.getItem("newhoursalarm");
+var resetminutes = localStorage.getItem("newminutesalarm");
+
+document.getElementById("getallvalues").onclick = function getvalues() {
+    window.location.reload();
+    alarmtimes.push({
+        alarmhours: resethours,
+        alarmminutes: resetminutes,
+        hourssliderposition: resethours,
+        minutessliderposition: resetminutes,
+        active: true,
+        daysofalarm: storedalarmdays
+    });
+    localStorage.setItem("alarmtimeinfo", JSON.stringify(alarmtimes));
+    alert("Alarm time has been updated");
+
+    // var storedhours = resethours;
+    // alert(storedhours);
+
+}

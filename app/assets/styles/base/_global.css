@@ -10,10 +10,16 @@ img{
 }
 
 #css-switch{
-	color:white;
+	color:grey;
 	text-decoration: none;
 }
 
 .change-theme-wrapper{
 	padding:20px;
+
+	a{
+	padding-right:45px;
+	color:grey;
+	text-decoration: none;
+	}
 }

@@ -1,9 +1,42 @@
+var urlreset = document.referrer;
+var alldays = {
+    "Su": true,
+    "Mo": true,
+    "Tu": true,
+    "We": true,
+    "Th": true,
+    "Fr": true,
+    "Sa": true
+};
+
+function resetonload() {
+    if (urlreset.endsWith("index.html")) {
+        localStorage.setItem('StoreHours', 00);
+        localStorage.setItem('StoreMinutes', 00);
+        localStorage.setItem('MinsEndPosition', 00);
+        localStorage.setItem('HoursEndPosition', 00);
+        localStorage.setItem("formValues", JSON.stringify(alldays));
+        location.reload();
+    } else {
+        console.log("Please enter values")
+    }
+}
+resetonload();
+
+//values to be put in the array
+
+var storedhours,
+    storedminutes,
+    storedhoursposition,
+    storedminutesposition,
+    storedactivedays;
+
 function alarmReset() {
     localStorage.setItem('StoreHours', 00);
     localStorage.setItem('StoreMinutes', 00);
-    localStorage.removeItem('MinsEndPosition');
-    localStorage.removeItem('HoursEndPosition');
-     localStorage.removeItem('formValues');
+    localStorage.setItem('MinsEndPosition', 00);
+    localStorage.setItem('HoursEndPosition', 00);
+    localStorage.setItem("formValues", JSON.stringify(alldays));
     location.reload();
 }
 
@@ -18,7 +51,6 @@ var $hours = $(".new-alarm__hours-slider"),
     hsp = hoursSliderPos,
     minsSliderPos = localStorage.getItem("MinsEndPosition"),
     msp = minsSliderPos;
-
 
 
 //function to store slider position for hours
@@ -57,19 +89,21 @@ var MinsEndPosition = function() {
 
 var updateValuesHours = function() {
     $from.prop("value", from);
+    // storedhours = from;
     localStorage.setItem('StoreHours', from);
-    let localHours = localStorage.getItem("StoreHours");
-    console.log(localHours);
-
-
 };
+
+let localHours = localStorage.getItem("StoreHours");
+console.log(localHours);
 
 var updateValuesMinutes = function() {
     $to.prop("value", to);
+    // storedminutes = to;
     localStorage.setItem('StoreMinutes', to);
-    let localMinutes = localStorage.getItem("StoreMinutes");
-    console.log(localMinutes);
 };
+let localMinutes = localStorage.getItem("StoreMinutes");
+console.log(localMinutes);
+
 
 
 //hours slider config
@@ -89,9 +123,12 @@ $hours.ionRangeSlider({
     },
     onChange: function(data) {
         from = data.from;
+        hsp = data.from;
         updateValuesHours();
-    }
+        // getHoursValues();
+    },
 });
+
 
 (function() {
     from = 0;
@@ -121,11 +158,49 @@ $minutes.ionRangeSlider({
         MinsEndPosition();
     },
     onChange: function(data) {
-        to = data.from
+        to = data.from;
+        msp = data.from;
         updateValuesMinutes();
+        // getMinutesValues();
     }
 });
 
+/* Get the checkboxes values based on the class attached to each check box */
+// $("#buttonClass").click(function() {
+//     getValueUsingClass();
+// });
+var days;
+
+function getcheckboxvalue() {
+    /* declare an checkbox array */
+    var chkArray = [];
+
+    /* look for all checkboes that have a class 'chk' attached to it and check if it was checked */
+    $(".check:checked").each(function() {
+        chkArray.push($(this).val());
+    });
+
+    /* we join the array separated by the comma */
+    var selected;
+    selected = chkArray.join(',');
+
+    if (selected.length > 0) {
+        days = chkArray;
+        console.log(days);
+    } else {
+        // alert("Please choose a day"); 
+        var alldays = {
+            "Su": true,
+            "Mo": true,
+            "Tu": true,
+            "We": true,
+            "Th": true,
+            "Fr": true,
+            "Sa": true
+        };
+        localStorage.setItem("formValues", JSON.stringify(alldays));
+    }
+}
 
 (function() {
     from = 0;
@@ -151,7 +226,10 @@ var currentTime = setInterval(function() {
 }, 1000);
 
 
+
+
 function alarmSet() {
+    getvalues();
     var hr = document.getElementById('alarmHours');
     var min = document.getElementById('alarmMinutes');
 
@@ -212,8 +290,10 @@ function outputResult(isWeekday, isWeekend) {
     if (isWeekday && isWeekend) output = "Both";
     else if (isWeekday) output = "Weekday";
     else if (isWeekend) output = "Weekend";
-    localStorage.setItem('Alarm1day', output);
+    localStorage.setItem('alarmday', output);
 }
+let daysactive = localStorage.getItem("alarmday");
+
 
 function checkDay() {
 
@@ -226,7 +306,6 @@ function checkDay() {
             else isWeekday = true;
         }
     });
-
     outputResult(isWeekday, isWeekend);
 }
 
@@ -235,9 +314,7 @@ function updateStorage() {
     $checkboxes.each(function() {
         formValues[this.id] = this.checked;
     });
-
     localStorage.setItem("formValues", JSON.stringify(formValues));
-
     checkDay();
 }
 
@@ -250,4 +327,23 @@ $.each(formValues, function(key, value) {
     $("#" + key).prop('checked', value);
 });
 
-document.getElementById("alarm1day").textContent = localStorage.getItem("Alarm1day");
+
+
+
+var alarmtimes = JSON.parse(localStorage.getItem('alarmtimeinfo')) || [];
+
+document.getElementById("getallvalues").onclick = function getvalues() {
+
+    getcheckboxvalue();
+
+    alarmtimes.push({
+        alarmhours: hsp,
+        alarmminutes: msp,
+        hourssliderposition: hsp,
+        minutessliderposition: msp,
+        active: true,
+        daysofalarm: days
+    });
+    localStorage.setItem("alarmtimeinfo", JSON.stringify(alarmtimes));
+    alert("Alarm time has been added!");
+}
