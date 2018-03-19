@@ -1,3 +1,4 @@
+
 // function loadalarmvalues() {
 var alarmtimes = JSON.parse(localStorage.getItem("alarmtimeinfo"));
 var currentId = window.location.search;
@@ -161,9 +162,6 @@ function alarmReset() {
 
 }
 
-document.getElementById('css-switch').onclick = function() {
-    document.getElementById('styles-white').href = 'temp/styles/styles-white.css';
-};
 
 ///checkbox
 
@@ -227,14 +225,6 @@ function insertcheck() {
 
 
 
-var storeddays = JSON.parse(localStorage.getItem('storedalarmdays')) || {};
-var $checkboxes = $("#new-alarm__days-selector-wrapper :checkbox");
-
-function setinitial() {
-    document.getElementById("newAlarmHours").value = storedhours;
-    document.getElementById("newAlarmMinutes").value = storedminutes;
-}
-setinitial();
 
 function checkboxalarm() {
 
@@ -274,3 +264,13 @@ document.getElementById("getallvalues").onclick = function getvalues() {
     // alert(storedhours);
 
 }
+
+
+var storeddays = JSON.parse(localStorage.getItem('storedalarmdays')) || {};
+var $checkboxes = $("#new-alarm__days-selector-wrapper :checkbox");
+
+function setinitial() {
+    document.getElementById("newAlarmHours").value = storedhours;
+    document.getElementById("newAlarmMinutes").value = storedminutes;
+}
+setinitial();
