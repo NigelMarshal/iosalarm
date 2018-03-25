@@ -1,4 +1,3 @@
-
 // function loadalarmvalues() {
 var alarmtimes = JSON.parse(localStorage.getItem("alarmtimeinfo"));
 var currentId = window.location.search;
@@ -253,12 +252,16 @@ function setinitial() {
 }
 setinitial();
 
-var resethours = localStorage.getItem("newhoursalarm");
-var resetminutes = localStorage.getItem("newminutesalarm");
+
 
 document.getElementById("getallvalues").onclick = function getvalues() {
-    window.location.reload();
-    alarmtimes.push({
+    //window.location.reload();
+    var resethours = localStorage.getItem("newhoursalarm");
+    var resetminutes = localStorage.getItem("newminutesalarm");
+    console.log(alarmtimes[currentId].alarmhours);
+    console.log(alarmtimes);
+
+    alarmtimes.splice(currentId, currentId, {
         alarmhours: resethours,
         alarmminutes: resetminutes,
         hourssliderposition: resethours,
@@ -266,12 +269,8 @@ document.getElementById("getallvalues").onclick = function getvalues() {
         active: true,
         daysofalarm: storedalarmdays
     });
+    console.log(alarmtimes);
     localStorage.setItem("alarmtimeinfo", JSON.stringify(alarmtimes));
     alert("Alarm time has been updated");
 
-    // var storedhours = resethours;
-    // alert(storedhours);
-
 }
-
-
