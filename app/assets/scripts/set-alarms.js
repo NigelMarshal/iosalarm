@@ -9,7 +9,8 @@ var alldays = {
     "Sa": true
 };
 
-function resetonload() {
+//On page load, set values to zero to avoid undefined values to be assigned.
+function settozero() {
     if (urlreset.endsWith("index.html")) {
         localStorage.setItem('StoreHours', 00);
         localStorage.setItem('StoreMinutes', 00);
@@ -21,7 +22,7 @@ function resetonload() {
         console.log("Please enter values")
     }
 }
-resetonload();
+settozero();
 
 //values to be put in the array
 
@@ -31,7 +32,9 @@ var storedhours,
     storedminutesposition,
     storedactivedays;
 
-function alarmReset() {
+
+document.getElementById("cancelalarm").onclick = function alarmCancel() {
+
     localStorage.setItem('StoreHours', 00);
     localStorage.setItem('StoreMinutes', 00);
     localStorage.setItem('MinsEndPosition', 00);
@@ -55,14 +58,14 @@ var $hours = $(".new-alarm__hours-slider"),
 
 //function to store slider position for hours
 
-(function() {
-    from = 0;
-    $hev.prop("value", 0);
-    if (localStorage.getItem("HoursEndPosition")) {
-        $hev.prop("value", localStorage.getItem("HoursEndPosition"));
-        from = $hev.prop;
-    }
-})();
+// (function() {
+//     from = 0;
+//     $hev.prop("value", 0);
+//     if (localStorage.getItem("HoursEndPosition")) {
+//         $hev.prop("value", localStorage.getItem("HoursEndPosition"));
+//         from = $hev.prop;
+//     }
+// })();
 
 var HoursEndPosition = function() {
     $hev.prop("value", finishHoursValue);
@@ -72,14 +75,14 @@ var HoursEndPosition = function() {
 
 //function to store slider position for minutes
 
-(function() {
-    from = 0;
-    $mev.prop("value", 0);
-    if (localStorage.getItem("MinsEndPosition")) {
-        $mev.prop("value", localStorage.getItem("MinsEndPosition"));
-        from = $mev.prop;
-    }
-})();
+// (function () {
+//     from = 0;
+//     $mev.prop("value", 0);
+//     if (localStorage.getItem("MinsEndPosition")) {
+//         $mev.prop("value", localStorage.getItem("MinsEndPosition"));
+//         from = $mev.prop;
+//     }
+// })();
 
 var MinsEndPosition = function() {
     $mev.prop("value", finishMinutesValue);
@@ -266,14 +269,6 @@ function alarmSet() {
 
 }
 
-
-function snooze() {
-    localStorage.setItem('StoreMinutes', to);
-    var localMinutes = parseInt(localStorage.getItem("StoreMinutes"));
-    localStorage.setItem('localMinutes', localMinutes++)
-    console.log(localMinutes);
-};
-
 document.getElementById('css-switch').onclick = function() {
     document.getElementById('styles-white').href = 'temp/styles/styles-white.css';
 };
@@ -346,4 +341,5 @@ document.getElementById("getallvalues").onclick = function getvalues() {
     });
     localStorage.setItem("alarmtimeinfo", JSON.stringify(alarmtimes));
     alert("Alarm time has been added!");
+    window.location.href = "index.html";
 }
