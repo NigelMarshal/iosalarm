@@ -9,21 +9,6 @@ var alldays = {
     "Sa": true
 };
 
-//On page load, set values to zero to avoid undefined values to be assigned.
-function settozero() {
-    if (urlreset.endsWith("index.html")) {
-        localStorage.setItem('StoreHours', 00);
-        localStorage.setItem('StoreMinutes', 00);
-        localStorage.setItem('MinsEndPosition', 00);
-        localStorage.setItem('HoursEndPosition', 00);
-        localStorage.setItem("formValues", JSON.stringify(alldays));
-        location.reload();
-    } else {
-        console.log("Please enter values")
-    }
-}
-settozero();
-
 //values to be put in the array
 
 var storedhours,
@@ -32,15 +17,28 @@ var storedhours,
     storedminutesposition,
     storedactivedays;
 
-
-document.getElementById("cancelalarm").onclick = function alarmCancel() {
-
+function setvaluestozero() {
     localStorage.setItem('StoreHours', 00);
     localStorage.setItem('StoreMinutes', 00);
     localStorage.setItem('MinsEndPosition', 00);
     localStorage.setItem('HoursEndPosition', 00);
     localStorage.setItem("formValues", JSON.stringify(alldays));
     location.reload();
+}
+
+//On page load, set values to zero to avoid undefined values to be assigned.
+function loadzerovalues() {
+    if (urlreset.endsWith("index.html")) {
+        setvaluestozero();
+    } else {
+        console.log("Please enter values")
+    }
+}
+
+loadzerovalues();
+
+document.getElementById("cancelalarm").onclick = function alarmCancel() {
+    setvaluestozero();
 }
 
 //storage for values from slider
@@ -58,14 +56,6 @@ var $hours = $(".new-alarm__hours-slider"),
 
 //function to store slider position for hours
 
-// (function() {
-//     from = 0;
-//     $hev.prop("value", 0);
-//     if (localStorage.getItem("HoursEndPosition")) {
-//         $hev.prop("value", localStorage.getItem("HoursEndPosition"));
-//         from = $hev.prop;
-//     }
-// })();
 
 var HoursEndPosition = function() {
     $hev.prop("value", finishHoursValue);
@@ -75,14 +65,6 @@ var HoursEndPosition = function() {
 
 //function to store slider position for minutes
 
-// (function () {
-//     from = 0;
-//     $mev.prop("value", 0);
-//     if (localStorage.getItem("MinsEndPosition")) {
-//         $mev.prop("value", localStorage.getItem("MinsEndPosition"));
-//         from = $mev.prop;
-//     }
-// })();
 
 var MinsEndPosition = function() {
     $mev.prop("value", finishMinutesValue);
@@ -101,7 +83,6 @@ console.log(localHours);
 
 var updateValuesMinutes = function() {
     $to.prop("value", to);
-    // storedminutes = to;
     localStorage.setItem('StoreMinutes', to);
 };
 let localMinutes = localStorage.getItem("StoreMinutes");
@@ -128,7 +109,6 @@ $hours.ionRangeSlider({
         from = data.from;
         hsp = data.from;
         updateValuesHours();
-        // getHoursValues();
     },
 });
 
@@ -142,7 +122,7 @@ $hours.ionRangeSlider({
     }
 })();
 
-hours = $hours.data("ionRangeSlider");
+// hours = $hours.data("ionRangeSlider");
 
 
 //minutes slider config
@@ -164,14 +144,10 @@ $minutes.ionRangeSlider({
         to = data.from;
         msp = data.from;
         updateValuesMinutes();
-        // getMinutesValues();
     }
 });
 
 /* Get the checkboxes values based on the class attached to each check box */
-// $("#buttonClass").click(function() {
-//     getValueUsingClass();
-// });
 var days;
 
 function getcheckboxvalue() {
@@ -214,7 +190,7 @@ function getcheckboxvalue() {
     }
 })();
 
-minutes = $minutes.data("ionRangeSlider");
+// minutes = $minutes.data("ionRangeSlider");
 
 
 //show time in header
@@ -228,46 +204,6 @@ var currentTime = setInterval(function() {
     headerTime.textContent = (hours) + ":" + (minutes) + "";
 }, 1000);
 
-
-
-
-function alarmSet() {
-    getvalues();
-    var hr = document.getElementById('alarmHours');
-    var min = document.getElementById('alarmMinutes');
-
-    var selectedHour = localStorage.getItem("StoreHours");
-    var selectedMin = localStorage.getItem("StoreMinutes")
-
-    var alarmTime = (selectedHour) + ":" + (selectedMin);
-    console.log('alarmTime:' + alarmTime);
-    document.getElementById('alarmHours').disabled = true;
-    document.getElementById('alarmMinutes').disabled = true;
-
-    var headerTime = document.getElementById('iphone-header__time');
-
-    /*function to calcutate the current time 
-    then compare it to the alarmtime 
-    */
-
-    setInterval(function() {
-
-        var date = new Date();
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-
-        var currentTime = headerTime.textContent = (hours) + ":" + (minutes) + "";
-
-        if (alarmTime == currentTime) {
-            window.location = "alarm-ring.html";
-        } else if (alarmTime == "null:null") {
-            console.log("Cannot leave time as zero");
-        } else {
-            window.location = "index.html";
-        }
-    }, 1000);
-
-}
 
 document.getElementById('css-switch').onclick = function() {
     document.getElementById('styles-white').href = 'temp/styles/styles-white.css';
