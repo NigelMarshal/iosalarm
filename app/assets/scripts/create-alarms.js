@@ -253,6 +253,10 @@ function setinitial() {
 setinitial();
 
 
+document.getElementById("cancelchange").onclick = function cancelChanges() {
+    location.reload();
+}
+
 
 document.getElementById("getallvalues").onclick = function getvalues() {
     //window.location.reload();
